@@ -1,0 +1,659 @@
+!DOCTYPE html
+html lang=en
+head
+    meta charset=UTF-8
+    meta name=viewport content=width=device-width, initial-scale=1.0
+    titleNureen  Luxury Ceramic Tableware & Home Decortitle
+    link rel=stylesheet href=httpscdnjs.cloudflare.comajaxlibsfont-awesome6.4.0cssall.min.css
+    style
+        root {
+            --brand-green #2D4F36;
+            --brand-green-dark #1C3524;
+            --brand-green-light #527853;
+            --brand-gold #C5A880;
+            --bg-offwhite #FAFAFA;
+            --text-dark #2D3748;
+        }
+         { box-sizing border-box; margin 0; padding 0; font-family -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif; }
+        body { background-color var(--bg-offwhite); color var(--text-dark); min-height 100vh; display flex; flex-direction column; }
+        .announcement-bar { background-color var(--brand-green); color white; font-size 11px; padding 8px 16px; text-align center; font-weight 500; }
+        header { position sticky; top 0; z-index 40; background rgba(250, 250, 250, 0.95); backdrop-filter blur(8px); border-bottom 1px solid #E2E8F0; }
+        .header-wrap { max-width 1280px; margin 0 auto; padding 0 24px; height 80px; display flex; align-items center; justify-content space-between; }
+        .brand-box { display flex; align-items center; gap 12px; cursor pointer; text-decoration none; }
+        .brand-logo { width 48px; height 48px; border-radius 50%; background-color var(--brand-green); color white; display flex; align-items center; justify-content center; font-size 22px; font-weight bold; border 2px solid var(--brand-gold); overflow hidden; }
+        .brand-logo img { width 100%; height 100%; object-fit cover; }
+        .brand-title { font-size 24px; font-weight 800; color var(--brand-green); line-height 1; }
+        .brand-title span { color var(--brand-gold); }
+        .brand-sub { font-size 10px; color #718096; text-transform uppercase; letter-spacing 2px; margin-top 4px; font-weight 600; }
+        .cart-btn { position relative; padding 10px 22px; border-radius 9999px; background-color rgba(45, 79, 54, 0.08); color var(--brand-green); border none; cursor pointer; display flex; align-items center; gap 8px; font-weight 600; font-size 14px; }
+        .hero { position relative; background linear-gradient(135deg, var(--brand-green-dark), var(--brand-green), var(--brand-green-light)); color white; min-height 500px; display flex; align-items center; overflow hidden; }
+        .hero-img-bg { position absolute; inset 0; opacity 0.25; width 100%; height 100%; object-fit cover; }
+        .hero-container { max-width 1280px; margin 0 auto; padding 60px 24px; position relative; z-index 2; max-width 700px; }
+        .hero-tag { background rgba(255, 255, 255, 0.15); color var(--brand-gold); font-size 11px; font-weight 700; padding 6px 16px; border-radius 9999px; text-transform uppercase; margin-bottom 20px; display inline-block; }
+        .hero h2 { font-size 44px; font-weight 800; line-height 1.15; margin-bottom 16px; }
+        .hero p { font-size 16px; color #E2E8F0; margin-bottom 32px; font-weight 300; }
+        .hero-btn { background-color var(--brand-gold); color var(--brand-green-dark); font-weight 700; padding 14px 32px; border-radius 12px; text-decoration none; display inline-flex; align-items center; gap 8px; }
+        .main-container { max-width 1280px; margin 0 auto; padding 60px 24px; flex 1; width 100%; }
+        .section-badge { display inline-block; background rgba(197, 168, 128, 0.15); color #8C6D3B; font-size 11px; font-weight 800; padding 4px 12px; border-radius 9999px; text-transform uppercase; margin-bottom 8px; }
+        .section-title { font-size 32px; font-weight 800; color var(--brand-green); }
+        .section-desc { color #718096; font-size 14px; margin-top 4px; }
+        .featured-layer { background #FFFFFF; border 1px solid #E2E8F0; border-radius 20px; padding 32px; margin-bottom 60px; box-shadow 0 4px 20px rgba(0,0,0,0.03); }
+        .shop-header { display flex; flex-direction column; gap 20px; margin-bottom 32px; }
+        @media(min-width 768px) { .shop-header { flex-direction row; align-items center; justify-content space-between; } }
+        .cat-filters { display flex; flex-wrap wrap; gap 8px; }
+        .cat-tab { padding 9px 20px; border-radius 9999px; font-size 13px; font-weight 600; border 1px solid #E2E8F0; background-color white; color #4A5568; cursor pointer; }
+        .cat-tab.active { background-color var(--brand-green); color white; border-color var(--brand-green); }
+        .product-grid { display grid; grid-template-columns repeat(1, 1fr); gap 32px; }
+        @media(min-width 640px) { .product-grid { grid-template-columns repeat(2, 1fr); } }
+        @media(min-width 1024px) { .product-grid { grid-template-columns repeat(3, 1fr); } }
+        .product-card { background white; border-radius 16px; border 1px solid #E2E8F0; overflow hidden; display flex; flex-direction column; transition all 0.3s; }
+        .product-cardhover { transform translateY(-4px); box-shadow 0 12px 24px -6px rgba(45,79,54,0.12); }
+        .product-img-box { height 260px; background-color #F7FAFC; position relative; overflow hidden; }
+        .product-img { width 100%; height 100%; object-fit cover; }
+        .product-details { padding 24px; display flex; flex-direction column; flex 1; justify-content space-between; }
+        .product-cat-tag { font-size 10px; font-weight 700; color var(--brand-green-light); text-transform uppercase; letter-spacing 1.5px; }
+        .product-title { font-size 18px; font-weight 700; color #2D3748; margin-top 4px; }
+        .product-footer { display flex; align-items center; justify-content space-between; margin-top 24px; padding-top 16px; border-top 1px solid #EDF2F7; }
+        .product-price { font-size 20px; font-weight 800; color var(--brand-green); }
+        .add-btn { background-color var(--brand-green); color white; border none; padding 10px 20px; border-radius 10px; font-size 13px; font-weight 700; cursor pointer; }
+        footer { background-color var(--brand-green-dark); color #E2E8F0; margin-top auto; padding 48px 24px; border-top 3px solid var(--brand-gold); }
+        .footer-wrap { max-width 1280px; margin 0 auto; display flex; flex-direction column; justify-content space-between; align-items center; gap 20px; text-align center; }
+        @media(min-width 768px) { .footer-wrap { flex-direction row; text-align left; } }
+        .social-links { display flex; gap 12px; margin-top 8px; }
+        .social-icon { width 36px; height 36px; border-radius 50%; background rgba(255,255,255,0.1); color white; display inline-flex; align-items center; justify-content center; text-decoration none; font-size 16px; }
+        #fullAdminSection { min-height 100vh; background-color #F7FAFC; display flex; flex-direction column; }
+        .admin-nav { background var(--brand-green-dark); color white; padding 16px 32px; display flex; align-items center; justify-content space-between; border-bottom 3px solid var(--brand-gold); }
+        .admin-container { max-width 1200px; margin 40px auto; padding 0 24px; width 100%; flex 1; }
+        .form-control { margin-bottom 16px; }
+        .form-label { display block; font-size 11px; font-weight 700; color #4A5568; text-transform uppercase; margin-bottom 4px; }
+        .size-hint { font-size 11px; color #C5A880; font-weight 600; margin-bottom 6px; display block; }
+        .form-input, .form-select { width 100%; padding 11px 14px; border 1px solid #CBD5E0; border-radius 8px; font-size 14px; background white; outline none; }
+        .btn-primary { width 100%; background var(--brand-green); color white; padding 12px; border none; border-radius 10px; font-weight 700; cursor pointer; font-size 14px; }
+        .btn-back { background rgba(255,255,255,0.15); color white; border 1px solid rgba(255,255,255,0.3); padding 8px 18px; border-radius 8px; cursor pointer; font-size 13px; font-weight 600; }
+        .cat-chip { display inline-flex; align-items center; gap 8px; background white; border 1px solid #CBD5E0; color #2D3748; font-size 13px; font-weight 600; padding 6px 14px; border-radius 10px; margin-right 8px; margin-bottom 8px; }
+        .cat-chip-btn { background #EDF2F7; border none; border-radius 4px; color #4A5568; padding 2px 6px; cursor pointer; font-size 12px; font-weight bold; }
+        .drawer-bg { position fixed; inset 0; z-index 50; background rgba(0,0,0,0.5); backdrop-filter blur(2px); display flex; justify-content flex-end; }
+        .drawer-box { background white; width 100%; max-width 440px; height 100%; padding 24px; display flex; flex-direction column; box-shadow -10px 0 30px rgba(0,0,0,0.15); overflow-y auto; }
+        .cart-row { display flex; align-items center; gap 16px; background #F7FAFC; padding 12px; border-radius 12px; border 1px solid #E2E8F0; margin-bottom 12px; }
+        .cart-img { width 60px; height 60px; object-fit cover; border-radius 8px; }
+        .hidden { display none !important; }
+    style
+head
+body
+
+    div id=publicSiteView
+        div class=announcement-bar
+            ✨ Premium Quality Bangladeshi Ceramic Tableware & Home Decor  🚚 Cash on Delivery Available Nationwide!
+        div
+
+        header
+            div class=header-wrap
+                div class=brand-box onclick=window.scrollTo({top 0, behavior 'smooth'})
+                    div id=brandLogoDisplay class=brand-logoNdiv
+                    div
+                        h1 class=brand-titleNureenspan.spanh1
+                        p class=brand-subCeramic & Tablewarep
+                    div
+                div
+                button onclick=toggleCart() class=cart-btn
+                    span🛒 Cartspan
+                    span id=cartBadge class=cart-badge0span
+                button
+            div
+        header
+
+        section class=hero
+            img id=heroImageDisplay class=hero-img-bg src=httpsimages.unsplash.comphoto-1610701596007-11502861dcfaauto=format&fit=crop&w=1600&q=80 alt=Cover Banner
+            div class=hero-container
+                span class=hero-tagHandcrafted Elegancespan
+                h2 id=heroTitleDisplayCrafted Ceramics for Timeless Homesh2
+                p id=heroSubtitleDisplayExplore handcrafted tableware, porcelain dinner sets, glass dish collections, and exquisite home decor items designed for modern living in Bangladesh.p
+                a href=#shop class=hero-btnExplore Collection ↓a
+            div
+        section
+
+        main id=shop class=main-container
+            div id=featuredMixSection class=featured-layer
+                div style=margin-bottom 24px;
+                    span class=section-badgeFeatured Showcasespan
+                    h3 style=font-size 26px; font-weight 800; color var(--brand-green);Special Mix Selectionh3
+                    p style=color #718096; font-size 13px; margin-top 2px;Handpicked best-sellers across all ceramic categories.p
+                div
+                div id=featuredGrid class=product-griddiv
+            div
+
+            div class=shop-header
+                div
+                    h3 id=shopSectionTitle class=section-titleOur Collectionh3
+                    p id=shopSectionDesc class=section-descBrowse premium tableware and home decor pieces by category.p
+                div
+                div id=categoryFilters class=cat-filtersdiv
+            div
+
+            div id=productGrid class=product-griddiv
+        main
+
+        footer
+            div class=footer-wrap
+                div
+                    h4 style=font-size 18px; font-weight 700; color white;Nureen Tableware & Decorh4
+                    p style=font-size 13px; color #CBD5E0; margin-top 4px;Brought to you from Dhaka, Bangladesh.p
+                    div id=footerSocialArea class=social-linksdiv
+                div
+                p style=font-size 12px; color #A0AEC0;&copy; 2026 Nureen. All rights reserved.p
+            div
+        footer
+    div
+
+    !-- Admin Panel --
+    div id=fullAdminSection class=hidden
+        div class=admin-nav
+            div style=display flex; align-items center; gap 12px;
+                span style=font-size 20px;🔒span
+                div
+                    h3 style=font-size 18px; font-weight 800;Nureen Admin Dashboardh3
+                    p style=font-size 11px; color var(--brand-gold);Database Connected Control Centerp
+                div
+            div
+            button onclick=exitAdmin() class=btn-back← Back to Websitebutton
+        div
+
+        div class=admin-container
+            div id=adminLoginView style=text-align center; max-width 380px; margin 80px auto; background white; padding 40px; border-radius 16px; border 1px solid #E2E8F0;
+                h4 style=font-size 22px; font-weight 800; color var(--brand-green); margin-bottom 8px;Admin Authenticationh4
+                p style=font-size 13px; color #718096; margin-bottom 24px;Enter your password to unlock full dashboard access.p
+                form onsubmit=handleAdminLogin(event)
+                    div class=form-control
+                        input type=password id=adminPasswordInput placeholder=Enter Admin Password class=form-input style=text-align center; letter-spacing 3px; font-size 16px;
+                    div
+                    button type=submit class=btn-primary style=padding 14px;Unlock Dashboardbutton
+                form
+            div
+
+            div id=adminDashboardView class=hidden
+                div style=display flex; gap 24px; border-bottom 2px solid #E2E8F0; padding-bottom 16px; margin-bottom 32px;
+                    button onclick=switchAdminTab('products') id=tabBtnProducts style=background none; border none; font-weight 700; color var(--brand-green); cursor pointer; font-size 16px;Manage Products & Categoriesbutton
+                    button onclick=switchAdminTab('orders') id=tabBtnOrders style=background none; border none; font-weight 600; color #718096; cursor pointer; font-size 16px;Customer Orders (span id=adminOrdersCount0span)button
+                    button onclick=switchAdminTab('settings') id=tabBtnSettings style=background none; border none; font-weight 600; color #718096; cursor pointer; font-size 16px;Store Branding & Pagesbutton
+                div
+
+                div id=adminProductsTab
+                    div style=background white; padding 20px; border-radius 16px; border 1px solid #E2E8F0; margin-bottom 24px;
+                        h4 style=font-size 15px; font-weight 700; color var(--brand-green); margin-bottom 8px;📁 Manage Categoriesh4
+                        div style=display flex; gap 12px; margin-bottom 16px;
+                            input type=text id=newCatInput placeholder=New Category Name (e.g. Bowls, Mugs) class=form-input style=max-width 380px;
+                            button onclick=addNewCategory() class=btn-primary style=width auto; padding 0 24px;+ Add Categorybutton
+                        div
+                        div id=adminCategoryChipListdiv
+                    div
+
+                    form onsubmit=saveProduct(event) style=background white; padding 24px; border-radius 16px; border 1px solid #E2E8F0; margin-bottom 32px;
+                        h4 id=productFormTitle style=font-size 16px; font-weight 700; color var(--brand-green); margin-bottom 16px;Add New Producth4
+                        input type=hidden id=editProductId
+                        div style=display grid; grid-template-columns repeat(2, 1fr); gap 20px;
+                            div class=form-control
+                                label class=form-labelProduct Namelabel
+                                input type=text id=prodName required class=form-input
+                            div
+                            div class=form-control
+                                label class=form-labelAssign Categorylabel
+                                select id=prodCategorySelect required class=form-selectselect
+                            div
+                            div class=form-control
+                                label class=form-labelPrice (BDT ৳)label
+                                input type=number id=prodPrice required class=form-input
+                            div
+                            div class=form-control
+                                label class=form-labelProduct Imagelabel
+                                span class=size-hint📐 Size 800 x 800 pxspan
+                                input type=file accept=image onchange=convertImageToBase64(this, 'prodImage') class=form-input style=padding 7px;
+                                input type=hidden id=prodImage
+                            div
+                        div
+                        button type=submit id=btnSaveProd class=btn-primary style=margin-top 8px; width auto; padding 12px 32px;Save Productbutton
+                    form
+
+                    h4 style=font-weight 700; font-size 18px; margin-bottom 16px; color var(--brand-green);Active Store Inventoryh4
+                    div id=adminProductListdiv
+                div
+
+                div id=adminOrdersTab class=hidden
+                    h4 style=font-weight 700; font-size 18px; margin-bottom 16px; color var(--brand-green);Customer Cash on Delivery Ordersh4
+                    div id=adminOrdersListdiv
+                div
+
+                div id=adminSettingsTab class=hidden
+                    form onsubmit=saveStoreSettings(event) style=background white; padding 24px; border-radius 16px; border 1px solid #E2E8F0; max-width 800px;
+                        h4 style=font-size 16px; font-weight 700; color var(--brand-green); margin-bottom 20px;🎨 Website Branding & Contenth4
+                        div style=display grid; grid-template-columns repeat(2, 1fr); gap 20px;
+                            div class=form-control
+                                label class=form-labelStore Logo (500x500px)label
+                                input type=file accept=image onchange=convertImageToBase64(this, 'settingLogo') class=form-input style=padding 7px;
+                                input type=hidden id=settingLogo
+                            div
+                            div class=form-control
+                                label class=form-labelHero Cover Banner (1600x600px)label
+                                input type=file accept=image onchange=convertImageToBase64(this, 'settingHero') class=form-input style=padding 7px;
+                                input type=hidden id=settingHero
+                            div
+                        div
+                        div class=form-control style=margin-top 16px;
+                            label class=form-labelHero Banner Titlelabel
+                            input type=text id=settingHeroTitle class=form-input
+                        div
+                        div class=form-control
+                            label class=form-labelHero Banner Subtitlelabel
+                            textarea id=settingHeroSubtitle class=form-input rows=2textarea
+                        div
+                        div style=display grid; grid-template-columns repeat(2, 1fr); gap 20px;
+                            div class=form-control
+                                label class=form-labelFacebook Linklabel
+                                input type=url id=settingFbLink class=form-input
+                            div
+                            div class=form-control
+                                label class=form-labelInstagram Linklabel
+                                input type=url id=settingInstaLink class=form-input
+                            div
+                        div
+                        button type=submit class=btn-primary style=width auto; padding 12px 32px; margin-top 8px;Save Changesbutton
+                    form
+                div
+            div
+        div
+    div
+
+    !-- Cart Drawer --
+    div id=cartDrawer class=drawer-bg hidden
+        div class=drawer-box
+            div style=display flex; align-items center; justify-content space-between; padding-bottom 16px; border-bottom 1px solid #E2E8F0;
+                h3 style=font-size 18px; font-weight 700; color var(--brand-green);Your Shopping Carth3
+                button onclick=toggleCart() style=background none; border none; font-size 22px; cursor pointer;&times;button
+            div
+            div id=cartItemsContainer style=flex 1; overflow-y auto; padding 16px 0;div
+            div style=padding-top 16px; border-top 1px solid #E2E8F0;
+                div style=display flex; justify-content space-between; margin-bottom 16px; font-weight 700;
+                    spanSubtotalspan
+                    span id=cartTotalPrice style=color var(--brand-green);৳0span
+                div
+                div id=checkoutFormSection style=background #F7FAFC; padding 16px; border-radius 12px; border 1px solid #E2E8F0;
+                    h4 style=font-size 13px; font-weight 700; color var(--brand-green); text-transform uppercase; margin-bottom 12px;Cash on Deliveryh4
+                    form onsubmit=submitOrder(event)
+                        div class=form-control style=margin-bottom 10px;
+                            label class=form-labelFull Name label
+                            input type=text id=orderName required class=form-input
+                        div
+                        div class=form-control style=margin-bottom 10px;
+                            label class=form-labelPhone label
+                            input type=tel id=orderPhone required class=form-input
+                        div
+                        div class=form-control style=margin-bottom 10px;
+                            label class=form-labelAddress label
+                            textarea id=orderAddress required class=form-input rows=2textarea
+                        div
+                        button type=submit class=btn-primary style=background-color #276749;Confirm Orderbutton
+                    form
+                div
+            div
+        div
+    div
+
+    !-- Frontend Script Connecting to Server API --
+    script
+        const ADMIN_SECRET_PASS = Nureen@2026Secure#;
+        let storeData = { categories [], products [], orders [], settings {} };
+        let cart = [];
+        let activeCategory = 'All';
+
+        async function fetchStoreData() {
+            try {
+                const res = await fetch('apidata');
+                storeData = await res.json();
+                applySettings();
+                renderCategories();
+                renderFeaturedProducts();
+                renderProducts();
+                updateCartBadge();
+            } catch (err) {
+                console.error(Failed to load store data, err);
+            }
+        }
+
+        function initApp() {
+            fetchStoreData();
+            checkUrlHashForAdmin();
+        }
+
+        window.addEventListener('hashchange', checkUrlHashForAdmin);
+
+        function checkUrlHashForAdmin() {
+            if (window.location.hash === '#admin-panel') {
+                document.getElementById('publicSiteView').classList.add('hidden');
+                document.getElementById('fullAdminSection').classList.remove('hidden');
+                if (sessionStorage.getItem('nureen_admin_auth') === 'true') {
+                    showAdminDashboard();
+                } else {
+                    document.getElementById('adminLoginView').classList.remove('hidden');
+                    document.getElementById('adminDashboardView').classList.add('hidden');
+                }
+            } else {
+                document.getElementById('fullAdminSection').classList.add('hidden');
+                document.getElementById('publicSiteView').classList.remove('hidden');
+            }
+        }
+
+        function exitAdmin() { window.location.hash = ''; }
+
+        function handleAdminLogin(event) {
+            event.preventDefault();
+            const pass = document.getElementById('adminPasswordInput').value;
+            if (pass === ADMIN_SECRET_PASS) {
+                sessionStorage.setItem('nureen_admin_auth', 'true');
+                showAdminDashboard();
+            } else {
+                alert('Incorrect password!');
+            }
+        }
+
+        function showAdminDashboard() {
+            document.getElementById('adminLoginView').classList.add('hidden');
+            document.getElementById('adminDashboardView').classList.remove('hidden');
+            renderAdminCategories();
+            populateCategorySelect();
+            renderAdminProductList();
+            renderAdminOrdersList();
+            loadSettingsIntoForm();
+        }
+
+        function switchAdminTab(tab) {
+            ['products', 'orders', 'settings'].forEach(t = {
+                document.getElementById(`admin${t.charAt(0).toUpperCase() + t.slice(1)}Tab`).classList.add('hidden');
+                document.getElementById(`tabBtn${t.charAt(0).toUpperCase() + t.slice(1)}`).style.color = #718096;
+            });
+            document.getElementById(`admin${tab.charAt(0).toUpperCase() + tab.slice(1)}Tab`).classList.remove('hidden');
+            document.getElementById(`tabBtn${tab.charAt(0).toUpperCase() + tab.slice(1)}`).style.color = var(--brand-green);
+        }
+
+        async function addNewCategory() {
+            const name = document.getElementById('newCatInput').value.trim();
+            if (!name) return;
+            await fetch('apicategories', {
+                method 'POST',
+                headers { 'Content-Type' 'applicationjson' },
+                body JSON.stringify({ name })
+            });
+            document.getElementById('newCatInput').value = '';
+            fetchStoreData().then(() = showAdminDashboard());
+        }
+
+        async function deleteCategory(name) {
+            if (confirm(`Delete category ${name}`)) {
+                await fetch(`apicategories${name}`, { method 'DELETE' });
+                fetchStoreData().then(() = showAdminDashboard());
+            }
+        }
+
+        function renderAdminCategories() {
+            document.getElementById('adminCategoryChipList').innerHTML = storeData.categories.map((cat, idx) = `
+                span class=cat-chip
+                    span${idx + 1}. ${cat}span
+                    button type=button onclick=deleteCategory('${cat}') style=background#FED7D7; bordernone; border-radius4px; color#C53030; font-weightbold; cursorpointer; padding2px 6px;&times;button
+                span
+            `).join('');
+        }
+
+        function populateCategorySelect() {
+            document.getElementById('prodCategorySelect').innerHTML = storeData.categories.map(cat = `option value=${cat}${cat}option`).join('');
+        }
+
+        function applySettings() {
+            const s = storeData.settings  {};
+            const logoBox = document.getElementById('brandLogoDisplay');
+            logoBox.innerHTML = s.logo  `img src=${s.logo}`  'N';
+            document.getElementById('heroImageDisplay').src = s.heroImage  '';
+            document.getElementById('heroTitleDisplay').innerText = s.heroTitle  '';
+            document.getElementById('heroSubtitleDisplay').innerText = s.heroSubtitle  '';
+            document.getElementById('shopSectionTitle').innerText = s.shopTitle  'Our Collection';
+            document.getElementById('shopSectionDesc').innerText = s.shopDesc  '';
+
+            let socialHtml = '';
+            if (s.fbLink) socialHtml += `a href=${s.fbLink} target=_blank class=social-iconi class=fa-brands fa-facebook-fia`;
+            if (s.instaLink) socialHtml += `a href=${s.instaLink} target=_blank class=social-iconi class=fa-brands fa-instagramia`;
+            document.getElementById('footerSocialArea').innerHTML = socialHtml;
+        }
+
+        function loadSettingsIntoForm() {
+            const s = storeData.settings  {};
+            document.getElementById('settingHeroTitle').value = s.heroTitle  '';
+            document.getElementById('settingHeroSubtitle').value = s.heroSubtitle  '';
+            document.getElementById('settingFbLink').value = s.fbLink  '';
+            document.getElementById('settingInstaLink').value = s.instaLink  '';
+        }
+
+        function convertImageToBase64(input, targetId) {
+            const file = input.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = e = document.getElementById(targetId).value = e.target.result;
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function renderCategories() {
+            const cats = ['All', ...storeData.categories];
+            document.getElementById('categoryFilters').innerHTML = cats.map(cat = `
+                button onclick=setCategory('${cat}') class=cat-tab ${activeCategory === cat  'active'  ''}${cat}button
+            `).join('');
+        }
+
+        function setCategory(cat) {
+            activeCategory = cat;
+            renderCategories();
+            renderProducts();
+        }
+
+        function renderFeaturedProducts() {
+            const featuredList = storeData.products.filter(p = p.featured);
+            const section = document.getElementById('featuredMixSection');
+            if (featuredList.length === 0) { section.style.display = 'none'; return; }
+            section.style.display = 'block';
+            document.getElementById('featuredGrid').innerHTML = featuredList.map(p = `
+                div class=product-card
+                    div class=product-img-boximg src=${p.image} class=product-imgdiv
+                    div class=product-details
+                        divspan class=product-cat-tag${p.category}spanh4 class=product-title${p.name}h4div
+                        div class=product-footerspan class=product-price৳${p.price}spanbutton onclick=addToCart('${p._id  p.id}') class=add-btnAdd to Cartbuttondiv
+                    div
+                div
+            `).join('');
+        }
+
+        function renderProducts() {
+            let filtered = activeCategory === 'All'  storeData.products  storeData.products.filter(p = p.category === activeCategory);
+            document.getElementById('productGrid').innerHTML = filtered.map(p = `
+                div class=product-card
+                    div class=product-img-boximg src=${p.image} class=product-imgdiv
+                    div class=product-details
+                        divspan class=product-cat-tag${p.category}spanh4 class=product-title${p.name}h4div
+                        div class=product-footerspan class=product-price৳${p.price}spanbutton onclick=addToCart('${p._id  p.id}') class=add-btnAdd to Cartbuttondiv
+                    div
+                div
+            `).join('');
+        }
+
+        function addToCart(id) {
+            const product = storeData.products.find(p = (p._id === id  p.id === id));
+            const existing = cart.find(item = (item._id === id  item.id === id));
+            if (existing) existing.qty++; else cart.push({ ...product, qty 1 });
+            updateCartBadge();
+            toggleCart();
+        }
+
+        function toggleCart() { document.getElementById('cartDrawer').classList.toggle('hidden'); renderCartItems(); }
+
+        function renderCartItems() {
+            const container = document.getElementById('cartItemsContainer');
+            let total = 0;
+            if (cart.length === 0) {
+                container.innerHTML = `p style=text-aligncenter; color#A0AEC0; margin-top20px;Your cart is empty.p`;
+                document.getElementById('cartTotalPrice').innerText = '৳0';
+                document.getElementById('checkoutFormSection').classList.add('hidden');
+                return;
+            }
+            document.getElementById('checkoutFormSection').classList.remove('hidden');
+            container.innerHTML = cart.map(item = {
+                total += item.price  item.qty;
+                return `
+                    div class=cart-row
+                        img src=${item.image} class=cart-img
+                        div style=flex1;h5 style=font-size13px; font-weight700;${item.name}h5p style=font-size11px; color#718096;৳${item.price} × ${item.qty}pdiv
+                        button onclick=removeFromCart('${item._id  item.id}') style=backgroundnone; bordernone; color#E53E3E; font-weightbold; cursorpointer;&times;button
+                    div
+                `;
+            }).join('');
+            document.getElementById('cartTotalPrice').innerText = `৳${total.toLocaleString()}`;
+        }
+
+        function removeFromCart(id) {
+            cart = cart.filter(item = item._id !== id && item.id !== id);
+            updateCartBadge();
+            renderCartItems();
+        }
+
+        function updateCartBadge() {
+            document.getElementById('cartBadge').innerText = cart.reduce((sum, item) = sum + item.qty, 0);
+        }
+
+        async function submitOrder(e) {
+            e.preventDefault();
+            if (cart.length === 0) return;
+            const order = {
+                id 'ORD-' + Math.floor(1000 + Math.random()  9000),
+                date new Date().toLocaleString(),
+                name document.getElementById('orderName').value,
+                phone document.getElementById('orderPhone').value,
+                address document.getElementById('orderAddress').value,
+                items [...cart],
+                total cart.reduce((sum, item) = sum + (item.price  item.qty), 0)
+            };
+            await fetch('apiorders', {
+                method 'POST',
+                headers { 'Content-Type' 'applicationjson' },
+                body JSON.stringify(order)
+            });
+            cart = [];
+            updateCartBadge();
+            toggleCart();
+            alert('Order placed successfully! Cash on Delivery confirmed.');
+            fetchStoreData();
+        }
+
+        function renderAdminOrdersList() {
+            document.getElementById('adminOrdersCount').innerText = storeData.orders.length;
+            const container = document.getElementById('adminOrdersList');
+            if (storeData.orders.length === 0) { container.innerHTML = `p style=color#718096; font-size13px;No orders received yet.p`; return; }
+            container.innerHTML = storeData.orders.map(o = `
+                div style=background white; padding 20px; border-radius 12px; border 1px solid #E2E8F0; margin-bottom 16px;
+                    div style=display flex; justify-content space-between; border-bottom 1px solid #EDF2F7; padding-bottom 8px; margin-bottom 8px;
+                        span style=font-weight 800; color var(--brand-green);Order ID ${o.id}span
+                        span style=font-size 12px; color #718096;${o.date}span
+                    div
+                    p style=font-size13px;strongCustomerstrong ${o.name}  strongPhonestrong ${o.phone}p
+                    p style=font-size13px; margin-bottom8px;strongAddressstrong ${o.address}p
+                    div style=background #F7FAFC; padding 8px; border-radius 6px; font-size 12px; margin-bottom 8px;
+                        ${o.items.map(i = `div• ${i.name} (${i.qty}x) - ৳${i.price  i.qty}div`).join('')}
+                    div
+                    div style=display flex; justify-content space-between; align-items center;
+                        span style=font-weight 800; color var(--brand-green);Total ৳${o.total} (COD)span
+                        button onclick=deleteOrder('${o.id}') style=background#FED7D7; color#C53030; bordernone; padding4px 10px; border-radius6px; font-weight700; cursorpointer;Deletebutton
+                    div
+                div
+            `).join('');
+        }
+
+        async function deleteOrder(id) {
+            if (confirm('Delete order')) {
+                await fetch(`apiorders${id}`, { method 'DELETE' });
+                fetchStoreData().then(() = showAdminDashboard());
+            }
+        }
+
+        function renderAdminProductList() {
+            document.getElementById('adminProductList').innerHTML = storeData.products.map(p = `
+                div style=display flex; align-items center; justify-content space-between; background white; padding 12px 16px; border-radius 10px; border 1px solid #E2E8F0; margin-bottom 10px;
+                    div style=display flex; align-items center; gap 16px;
+                        img src=${p.image} style=width 48px; height 48px; object-fit cover; border-radius 8px;
+                        div
+                            h6 style=font-size 14px; font-weight 700;${p.name}h6
+                            p style=font-size 12px; color #718096;৳${p.price} • ${p.category}p
+                        div
+                    div
+                    div style=display flex; gap 8px;
+                        button onclick=toggleFeature('${p._id  p.id}') style=background ${p.featured  '#FEFCBF'  '#EDF2F7'}; border1px solid #D69E2E; padding4px 10px; border-radius6px; font-size11px; cursorpointer;${p.featured  '★ Featured'  '☆ Feature'}button
+                        button onclick=deleteProduct('${p._id  p.id}') style=background #FED7D7; color #C53030; border none; padding 4px 10px; border-radius 6px; font-size 11px; cursorpointer;Deletebutton
+                    div
+                div
+            `).join('');
+        }
+
+        async function toggleFeature(id) {
+            const p = storeData.products.find(item = (item._id === id  item.id === id));
+            if (p) {
+                p.featured = !p.featured;
+                await fetch('apiproducts', {
+                    method 'POST',
+                    headers { 'Content-Type' 'applicationjson' },
+                    body JSON.stringify(p)
+                });
+                fetchStoreData().then(() = showAdminDashboard());
+            }
+        }
+
+        async function saveProduct(e) {
+            e.preventDefault();
+            const product = {
+                name document.getElementById('prodName').value,
+                category document.getElementById('prodCategorySelect').value,
+                price Number(document.getElementById('prodPrice').value),
+                image document.getElementById('prodImage').value  storeData.products[0].image
+            };
+            await fetch('apiproducts', {
+                method 'POST',
+                headers { 'Content-Type' 'applicationjson' },
+                body JSON.stringify(product)
+            });
+            document.getElementById('prodName').value = '';
+            document.getElementById('prodPrice').value = '';
+            fetchStoreData().then(() = showAdminDashboard());
+            alert('Product saved!');
+        }
+
+        async function deleteProduct(id) {
+            if (confirm('Delete product')) {
+                await fetch(`apiproducts${id}`, { method 'DELETE' });
+                fetchStoreData().then(() = showAdminDashboard());
+            }
+        }
+
+        async function saveStoreSettings(e) {
+            e.preventDefault();
+            const settings = {
+                heroTitle document.getElementById('settingHeroTitle').value,
+                heroSubtitle document.getElementById('settingHeroSubtitle').value,
+                fbLink document.getElementById('settingFbLink').value,
+                instaLink document.getElementById('settingInstaLink').value,
+                logo document.getElementById('settingLogo').value  storeData.settings.logo,
+                heroImage document.getElementById('settingHeroImage')  storeData.settings.heroImage
+            };
+            await fetch('apisettings', {
+                method 'POST',
+                headers { 'Content-Type' 'applicationjson' },
+                body JSON.stringify(settings)
+            });
+            fetchStoreData();
+            alert('Settings updated!');
+        }
+
+        initApp();
+    script
+body
+html
