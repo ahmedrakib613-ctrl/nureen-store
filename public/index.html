@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nureen | Luxury Ceramic Tableware & Home Decor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --brand-green: #2D4F36;
+            --brand-green-dark: #1C3524;
+            --brand-green-light: #527853;
+            --brand-gold: #C5A880;
+            --bg-offwhite: #FAFAFA;
+            --text-dark: #2D3748;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        body { background-color: var(--bg-offwhite); color: var(--text-dark); min-height: 100vh; display: flex; flex-direction: column; }
+        .announcement-bar { background-color: var(--brand-green); color: white; font-size: 11px; padding: 8px 16px; text-align: center; font-weight: 500; }
+        header { position: sticky; top: 0; z-index: 40; background: rgba(250, 250, 250, 0.95); backdrop-filter: blur(8px); border-bottom: 1px solid #E2E8F0; }
+        .header-wrap { max-width: 1280px; margin: 0 auto; padding: 0 24px; height: 80px; display: flex; align-items: center; justify-content: space-between; }
+        .brand-box { display: flex; align-items: center; gap: 12px; cursor: pointer; text-decoration: none; }
+        .brand-logo { width: 48px; height: 48px; border-radius: 50%; background-color: var(--brand-green); color: white; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: bold; border: 2px solid var(--brand-gold); overflow: hidden; }
+        .brand-logo img { width: 100%; height: 100%; object-fit: cover; }
+        .brand-title { font-size: 24px; font-weight: 800; color: var(--brand-green); line-height: 1; }
+        .brand-title span { color: var(--brand-gold); }
+        .brand-sub { font-size: 10px; color: #718096; text-transform: uppercase; letter-spacing: 2px; margin-top: 4px; font-weight: 600; }
+        .cart-btn { position: relative; padding: 10px 22px; border-radius: 9999px; background-color: rgba(45, 79, 54, 0.08); color: var(--brand-green); border: none; cursor: pointer; display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 14px; }
+        .cart-badge { background: var(--brand-green); color: white; font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 999px; }
+        .hero { position: relative; background: linear-gradient(135deg, var(--brand-green-dark), var(--brand-green), var(--brand-green-light)); color: white; min-height: 500px; display: flex; align-items: center; overflow: hidden; }
+        .hero-img-bg { position: absolute; inset: 0; opacity: 0.25; width: 100%; height: 100%; object-fit: cover; }
+        .hero-container { max-width: 1280px; margin: 0 auto; padding: 60px 24px; position: relative; z-index: 2; max-width: 700px; }
+        .hero-tag { background: rgba(255, 255, 255, 0.15); color: var(--brand-gold); font-size: 11px; font-weight: 700; padding: 6px 16px; border-radius: 9999px; text-transform: uppercase; margin-bottom: 20px; display: inline-block; }
+        .hero h2 { font-size: 44px; font-weight: 800; line-height: 1.15; margin-bottom: 16px; }
+        .hero p { font-size: 16px; color: #E2E8F0; margin-bottom: 32px; font-weight: 300; }
+        .hero-btn { background-color: var(--brand-gold); color: var(--brand-green-dark); font-weight: 700; padding: 14px 32px; border-radius: 12px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+        .main-container { max-width: 1280px; margin: 0 auto; padding: 60px 24px; flex: 1; width: 100%; }
+        .section-badge { display: inline-block; background: rgba(197, 168, 128, 0.15); color: #8C6D3F; font-size: 11px; font-weight: 800; padding: 4px 12px; border-radius: 9999px; text-transform: uppercase; margin-bottom: 8px; }
+        .section-title { font-size: 32px; font-weight: 800; color: var(--brand-green); }
+        .section-desc { color: #718096; font-size: 14px; margin-top: 4px; }
+        .featured-layer { background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 20px; padding: 32px; margin-bottom: 60px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
+        .shop-header { display: flex; flex-direction: column; gap: 20px; margin-bottom: 32px; }
+        @media(min-width: 768px) { .shop-header { flex-direction: row; align-items: flex-end; justify-content: space-between; } }
+        .cat-filters { display: flex; flex-wrap: wrap; gap: 8px; }
+        .cat-tab { padding: 9px 20px; border-radius: 9999px; font-size: 13px; font-weight: 600; border: 1px solid #E2E8F0; background-color: white; color: #4A5568; cursor: pointer; }
+        .cat-tab.active { background-color: var(--brand-green); color: white; border-color: var(--brand-green); }
+        .product-grid { display: grid; grid-template-columns: repeat(1, 1fr); gap: 32px; }
+        @media(min-width: 640px) { .product-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media(min-width: 1024px) { .product-grid { grid-template-columns: repeat(3, 1fr); } }
+        .product-card { background: white; border-radius: 16px; border: 1px solid #E2E8F0; overflow: hidden; display: flex; flex-direction: column; transition: all 0.3s; }
+        .product-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px -6px rgba(45,79,54,0.12); }
+        .product-img-box { height: 260px; background-color: #F7FAFC; position: relative; overflow: hidden; }
+        .product-img { width: 100%; height: 100%; object-fit: cover; }
+        .product-details { padding: 24px; display: flex; flex-direction: column; flex: 1; justify-content: space-between; }
+        .product-cat-tag { font-size: 10px; font-weight: 700; color: var(--brand-green-light); text-transform: uppercase; letter-spacing: 1.5px; }
+        .product-title { font-size: 18px; font-weight: 700; color: #2D3748; margin-top: 4px; }
+        .product-moq { font-size: 11px; color: #8C6D3F; font-weight: 600; margin-top: 6px; }
+        .product-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 24px; padding-top: 16px; border-top: 1px solid #EDF2F7; }
+        .product-price { font-size: 20px; font-weight: 800; color: var(--brand-green); }
+        .add-btn { background-color: var(--brand-green); color: white; border: none; padding: 10px 20px; border-radius: 10px; font-size: 13px; font-weight: 700; cursor: pointer; }
+        footer { background-color: var(--brand-green-dark); color: #E2E8F0; margin-top: auto; padding: 48px 24px; border-top: 3px solid var(--brand-gold); }
+        .footer-wrap { max-width: 1280px; margin: 0 auto; display: flex; flex-direction: column; justify-content: space-between; align-items: center; gap: 20px; text-align: center; }
+        @media(min-width: 768px) { .footer-wrap { flex-direction: row; text-align: left; } }
+        .social-links { display: flex; gap: 12px; margin-top: 8px; }
+        .social-icon { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.1); color: white; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; font-size: 16px; }
+        #fullAdminSection { min-height: 100vh; background-color: #F7FAFC; display: flex; flex-direction: column; }
+        .admin-nav { background: var(--brand-green-dark); color: white; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; border-bottom: 3px solid var(--brand-gold); }
+        .admin-container { max-width: 1200px; margin: 40px auto; padding: 0 24px; width: 100%; flex: 1; }
+        .form-control { margin-bottom: 16px; }
+        .form-label { display: block; font-size: 11px; font-weight: 700; color: #4A5568; text-transform: uppercase; margin-bottom: 4px; }
+        .size-hint { font-size: 11px; color: #C5A880; font-weight: 600; margin-bottom: 6px; display: block; }
+        .form-input, .form-select { width: 100%; padding: 11px 14px; border: 1px solid #CBD5E0; border-radius: 8px; font-size: 14px; background: white; outline: none; }
+        .btn-primary { width: 100%; background: var(--brand-green); color: white; padding: 12px; border: none; border-radius: 10px; font-weight: 700; cursor: pointer; font-size: 14px; }
+        .btn-back { background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.3); padding: 8px 18px; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600; }
+        .cat-chip { display: inline-flex; align-items: center; gap: 8px; background: white; border: 1px solid #CBD5E0; color: #2D3748; font-size: 13px; padding: 6px 14px; border-radius: 10px; margin-right: 8px; margin-bottom: 8px; }
+        .cat-chip button { background: #EDF2F7; border: none; border-radius: 4px; color: #4A5568; padding: 2px 6px; cursor: pointer; font-size: 12px; font-weight: bold; }
+        .drawer-bg { position: fixed; inset: 0; z-index: 50; background: rgba(0,0,0,0.5); backdrop-filter: blur(2px); display: flex; justify-content: flex-end; }
+        .drawer-box { background: white; width: 100%; max-width: 440px; height: 100%; padding: 24px; display: flex; flex-direction: column; box-shadow: -10px 0 30px rgba(0,0,0,0.15); overflow-y: auto; }
+        .cart-row { display: flex; align-items: center; gap: 16px; background: #F7FAFC; padding: 12px; border-radius: 12px; border: 1px solid #E2E8F0; margin-bottom: 12px; }
+        .cart-img { width: 60px; height: 60px; object-fit: cover; border-radius: 8px; }
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+
+    <div id="publicSiteView">
+        <div class="announcement-bar">
+            Premium Quality Bangladeshi Ceramic Tableware &bull; Cash on Delivery Available Nationwide!
+        </div>
+
+        <header>
+            <div class="header-wrap">
+                <div id="brandLogoDisplay" class="brand-logoNav" style="display:flex;align-items:center;gap:12px;cursor:pointer;" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                    <div id="brandLogoIcon" class="brand-logo">N</div>
+                    <div>
+                        <h1 class="brand-title">Nureen<span>.</span></h1>
+                        <p class="brand-sub">Ceramic &amp; Tableware</p>
+                    </div>
+                </div>
+                <button onclick="toggleCart()" class="cart-btn">
+                    <span>Cart</span>
+                    <span id="cartBadge" class="cart-badge">0</span>
+                </button>
+            </div>
+        </header>
+
+        <section class="hero">
+            <img id="heroImageDisplay" class="hero-img-bg" src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=1600&q=80" alt="Cover Banner">
+            <div class="hero-container">
+                <span class="hero-tag">Handcrafted Elegance</span>
+                <h2 id="heroTitleDisplay">Crafted Ceramics for Timeless Homes</h2>
+                <p id="heroSubtitleDisplay">Explore handcrafted tableware, porcelain dinner sets, glass dish collections, and exquisite home decor items designed for modern living in Bangladesh.</p>
+                <a href="#shop" class="hero-btn">Explore Collection &rarr;</a>
+            </div>
+        </section>
+
+        <main id="shop" class="main-container">
+            <div id="featuredMixSection" class="featured-layer">
+                <span class="section-badge">Featured Showcase</span>
+                <h3 class="section-title">Special Mix Selection</h3>
+                <p class="section-desc" style="margin-bottom:24px;">Handpicked best-sellers across all ceramic categories</p>
+                <div id="featuredGrid" class="product-grid"></div>
+            </div>
+
+            <div class="shop-header">
+                <div>
+                    <span class="section-badge">Our Collection</span>
+                    <h3 class="section-title">Browse by Category</h3>
+                    <p class="section-desc">Browse premium tableware and home decor pieces by category</p>
+                </div>
+                <div id="categoryFilters" class="cat-filters"></div>
+            </div>
+            <div id="productGrid" class="product-grid"></div>
+        </main>
+
+        <footer>
+            <div class="footer-wrap">
+                <div>
+                    <h4 style="font-size:18px;font-weight:700;color:white;">Nureen Tableware &amp; Decor</h4>
+                    <p style="font-size:13px;color:#CBD5E0;margin-top:4px;">Brought to you from Dhaka, Bangladesh.</p>
+                </div>
+                <div id="footerSocialArea" class="social-links"></div>
+                <p style="font-size:12px;color:#A0AEC0;">&copy; 2026 Nureen. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Admin Panel -->
+    <div id="fullAdminSection" class="hidden">
+        <div class="admin-nav">
+            <div style="display:flex;align-items:center;gap:12px;">
+                <span style="font-size:20px;">&#9881;</span>
+                <div>
+                    <h3 style="font-size:18px;font-weight:800;">Nureen Admin Dashboard</h3>
+                    <p style="font-size:11px;color:var(--brand-gold);">Database Connected Control Center</p>
+                </div>
+            </div>
+            <button onclick="exitAdmin()" class="btn-back">&larr; Back to Website</button>
+        </div>
+
+        <div class="admin-container">
+            <div id="adminLoginView" style="text-align:center;max-width:380px;margin:80px auto;background:white;padding:40px;border-radius:16px;border:1px solid #E2E8F0;">
+                <h4 style="font-size:22px;font-weight:800;color:var(--brand-green);margin-bottom:8px;">Admin Authentication</h4>
+                <p style="font-size:13px;color:#718096;margin-bottom:24px;">Enter your password to unlock full dashboard access.</p>
+                <form onsubmit="handleAdminLogin(event)" class="form-control">
+                    <input type="password" id="adminPasswordInput" placeholder="Enter Admin Password" class="form-input" style="text-align:center;letter-spacing:3px;font-size:16px;" required>
+                    <button type="submit" class="btn-primary" style="padding:14px;margin-top:12px;">Unlock Dashboard</button>
+                </form>
+            </div>
+
+            <div id="adminDashboardView" class="hidden">
+                <div style="display:flex;gap:24px;border-bottom:2px solid #E2E8F0;padding-bottom:12px;margin-bottom:32px;flex-wrap:wrap;">
+                    <button onclick="switchAdminTab('products')" id="tabBtnProducts" style="background:none;border:none;font-weight:700;color:var(--brand-green);cursor:pointer;font-size:16px;">Manage Products &amp; Categories</button>
+                    <button onclick="switchAdminTab('orders')" id="tabBtnOrders" style="background:none;border:none;font-weight:600;color:#718096;cursor:pointer;font-size:16px;">Customer Orders (<span id="adminOrdersCount">0</span>)</button>
+                    <button onclick="switchAdminTab('settings')" id="tabBtnSettings" style="background:none;border:none;font-weight:600;color:#718096;cursor:pointer;font-size:16px;">Store Branding &amp; Pages</button>
+                </div>
+
+                <!-- Products Tab -->
+                <div id="adminProductsTab">
+                    <div style="background:white;padding:20px;border-radius:16px;border:1px solid #E2E8F0;margin-bottom:24px;">
+                        <h4 style="font-size:15px;font-weight:700;color:var(--brand-green);margin-bottom:8px;">Manage Categories</h4>
+                        <div style="display:flex;gap:12px;margin-bottom:16px;">
+                            <input type="text" id="newCatInput" placeholder="New Category Name (e.g. Bowls, Mugs)" class="form-input" style="max-width:380px;">
+                            <button onclick="addNewCategory()" class="btn-primary" style="width:auto;padding:0 24px;">+ Add Category</button>
+                        </div>
+                        <div id="adminCategoryChipList"></div>
+                    </div>
+
+                    <form onsubmit="saveProduct(event)" style="background:white;padding:24px;border-radius:16px;border:1px solid #E2E8F0;margin-bottom:32px;">
+                        <h4 id="productFormTitle" style="font-size:16px;font-weight:700;color:var(--brand-green);margin-bottom:16px;">Add New Product</h4>
+                        <input type="hidden" id="editProductId">
+                        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:20px;">
+                            <div class="form-control">
+                                <label class="form-label">Product Name</label>
+                                <input type="text" id="prodName" required class="form-input" placeholder="e.g. Matte Green Ceramic Plate">
+                            </div>
+                            <div class="form-control">
+                                <label class="form-label">Assign Category</label>
+                                <select id="prodCategorySelect" required class="form-select"></select>
+                            </div>
+                            <div class="form-control">
+                                <label class="form-label">Price (BDT &#2547;)</label>
+                                <input type="number" id="prodPrice" required class="form-input" placeholder="450">
+                            </div>
+                            <div class="form-control">
+                                <label class="form-label">Min Order Qty (MOQ)</label>
+                                <input type="number" id="prodMinOrder" required class="form-input" value="1" min="1">
+                            </div>
+                            <div class="form-control">
+                                <label class="form-label">Product Image</label>
+                                <span class="size-hint">Size: 800 x 800 px (3:4 or Square)</span>
+                                <input type="file" accept="image/*" onchange="convertImageToBase64(this, 'prodImage')" class="form-input" style="padding:7px;">
+                                <input type="hidden" id="prodImage">
+                            </div>
+                        </div>
+                        <div style="display:flex;gap:12px;margin-top:8px;">
+                            <button type="submit" id="btnSaveProd" class="btn-primary" style="width:auto;padding:12px 32px;">Save Product</button>
+                            <button type="button" id="btnCancelEdit" onclick="resetProductForm()" class="hidden" style="background:#EDF2F7;border:none;padding:12px 24px;border-radius:10px;font-weight:700;cursor:pointer;">Cancel</button>
+                        </div>
+                    </form>
+
+                    <h4 style="font-weight:700;font-size:18px;margin-bottom:16px;color:var(--brand-green);">Active Store Inventory</h4>
+                    <div id="adminProductList"></div>
+                </div>
+
+                <!-- Orders Tab -->
+                <div id="adminOrdersTab" class="hidden">
+                    <h4 style="font-weight:700;font-size:18px;margin-bottom:16px;color:var(--brand-green);">Customer Cash on Delivery Orders</h4>
+                    <div id="adminOrdersList"></div>
+                </div>
+
+                <!-- Settings Tab -->
+                <div id="adminSettingsTab" class="hidden">
+                    <form onsubmit="saveStoreSettings(event)" style="background:white;padding:24px;border-radius:16px;border:1px solid #E2E8F0;">
+                        <h4 style="font-size:16px;font-weight:700;color:var(--brand-green);margin-bottom:16px;">Website Visuals &amp; Social Media Links</h4>
+                        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));gap:20px;">
+                            <div class="form-control">
+                                <label class="form-label">Brand Logo Image</label>
+                                <span class="size-hint">Size: 200 x 200 px</span>
+                                <input type="file" accept="image/*" onchange="convertImageToBase64(this, 'setLogoUrl')" class="form-input">
+                                <input type="hidden" id="setLogoUrl">
+                            </div>
+                            <div class="form-control">
+                                <label class="form-label">Cover Banner Image</label>
+                                <span class="size-hint">Size: 1600 x 600 px</span>
+                                <input type="file" accept="image/*" onchange="convertImageToBase64(this, 'setHeroImg')" class="form-input">
+                                <input type="hidden" id="setHeroImg">
+                            </div>
+                            <div class="form-control">
+                                <label class="form-label">Cover Title</label>
+                                <input type="text" id="setHeroTitle" class="form-input">
+                            </div>
+                            <div class="form-control">
+                                <label class="form-label">Cover Subtitle</label>
+                                <input type="text" id="setHeroSubtitle" class="form-input">
+                            </div>
+                            <div class="form-control">
+                                <label class="form-label">Facebook Page URL</label>
+                                <input type="url" id="setFbUrl" placeholder="https://facebook.com/..." class="form-input">
+                            </div>
+                            <div class="form-control">
+                                <label class="form-label">Instagram Page URL</label>
+                                <input type="url" id="setIgUrl" placeholder="https://instagram.com/..." class="form-input">
+                            </div>
+                            <div class="form-control">
+                                <label class="form-label">WhatsApp Number</label>
+                                <input type="text" id="setWaNum" placeholder="8801XXXXXXXXX" class="form-input">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-primary" style="width:auto;padding:12px 32px;margin-top:16px;">Save All Settings</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Drawer -->
+    <div id="cartDrawer" class="drawer-bg hidden">
+        <div class="drawer-box">
+            <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #E2E8F0;padding-bottom:16px;margin-bottom:20px;">
+                <h3 style="font-size:20px;font-weight:800;color:var(--brand-green);">Your Cart</h3>
+                <button onclick="toggleCart()" style="background:none;border:none;font-size:24px;cursor:pointer;">&times;</button>
+            </div>
+            <div id="cartItemsContainer" style="flex:1;overflow-y:auto;"></div>
+            <div id="cartCheckoutBox" class="hidden" style="border-top:1px solid #E2E8F0;padding-top:16px;margin-top:16px;">
+                <div style="display:flex;justify-content:space-between;font-size:18px;font-weight:800;margin-bottom:16px;">
+                    <span>Total Amount:</span>
+                    <span id="cartTotalDisplay" style="color:var(--brand-green);">&#2547;0</span>
+                </div>
+                <form onsubmit="submitOrder(event)">
+                    <div class="form-control">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" id="custName" required class="form-input" placeholder="Your Name">
+                    </div>
+                    <div class="form-control">
+                        <label class="form-label">Mobile Number</label>
+                        <input type="tel" id="custPhone" required class="form-input" placeholder="017XXXXXXXX">
+                    </div>
+                    <div class="form-control">
+                        <label class="form-label">Delivery Address</label>
+                        <input type="text" id="custAddress" required class="form-input" placeholder="House, Road, Area, District">
+                    </div>
+                    <button type="submit" class="btn-primary">Confirm Order (Cash on Delivery)</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let products = [];
+        let categories = ['Dinner Sets', 'Plates', 'Bowls', 'Mugs & Cups', 'Glassware'];
+        let cart = JSON.parse(localStorage.getItem('nureen_cart') || '[]');
+        let activeCategory = 'All';
+        let adminToken = sessionStorage.getItem('nureen_admin_token') || '';
+        let storeSettings = {
+            logoUrl: '',
+            heroImage: 'https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=1600&q=80',
+            heroTitle: 'Crafted Ceramics for Timeless Homes',
+            heroSubtitle: 'Explore handcrafted tableware, porcelain dinner sets, glass dish collections, and exquisite home decor items designed for modern living in Bangladesh.',
+            facebookUrl: '',
+            instagramUrl: '',
+            whatsappNumber: ''
+        };
+
+        async function initApp() {
+            if (window.location.hash === '#admin-panel') {
+                openAdminView();
+            }
+            window.addEventListener('hashchange', () => {
+                if (window.location.hash === '#admin-panel') openAdminView();
+            });
+
+            await Promise.all([loadSettings(), loadCategories(), loadProducts()]);
+            updateCartUI();
+        }
+
+        async function loadSettings() {
+            try {
+                const res = await fetch('/api/settings');
+                if (res.ok) {
+                    const data = await res.json();
+                    if (data && Object.keys(data).length > 0) {
+                        storeSettings = { ...storeSettings, ...data };
+                    }
+                }
+            } catch (e) { console.log('Using default settings'); }
+            applySettingsUI();
+        }
+
+        function applySettingsUI() {
+            const logoIcon = document.getElementById('brandLogoIcon');
+            if (storeSettings.logoUrl) {
+                logoIcon.innerHTML = `<img src="${storeSettings.logoUrl}" alt="Nureen">`;
+            } else {
+                logoIcon.textContent = 'N';
+            }
+            if (storeSettings.heroImage) document.getElementById('heroImageDisplay').src = storeSettings.heroImage;
+            if (storeSettings.heroTitle) document.getElementById('heroTitleDisplay').textContent = storeSettings.heroTitle;
+            if (storeSettings.heroSubtitle) document.getElementById('heroSubtitleDisplay').textContent = storeSettings.heroSubtitle;
+
+            const socialArea = document.getElementById('footerSocialArea');
+            let linksHtml = '';
+            if (storeSettings.facebookUrl) linksHtml += `<a href="${storeSettings.facebookUrl}" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>`;
+            if (storeSettings.instagramUrl) linksHtml += `<a href="${storeSettings.instagramUrl}" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>`;
+            if (storeSettings.whatsappNumber) linksHtml += `<a href="https://wa.me/${storeSettings.whatsappNumber}" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>`;
+            socialArea.innerHTML = linksHtml;
+
+            document.getElementById('setLogoUrl').value = storeSettings.logoUrl || '';
+            document.getElementById('setHeroImg').value = storeSettings.heroImage || '';
+            document.getElementById('setHeroTitle').value = storeSettings.heroTitle || '';
+            document.getElementById('setHeroSubtitle').value = storeSettings.heroSubtitle || '';
+            document.getElementById('setFbUrl').value = storeSettings.facebookUrl || '';
+            document.getElementById('setIgUrl').value = storeSettings.instagramUrl || '';
+            document.getElementById('setWaNum').value = storeSettings.whatsappNumber || '';
+        }
+
+        async function loadCategories() {
+            try {
+                const res = await fetch('/api/categories');
+                if (res.ok) {
+                    const data = await res.json();
+                    if (Array.isArray(data) && data.length > 0) {
+                        categories = data.map(c => c.name || c);
+                    }
+                }
+            } catch (e) { console.log('Using default categories'); }
+            renderCategoryTabs();
+            renderAdminCategories();
+        }
+
+        async function loadProducts() {
+            try {
+                const res = await fetch('/api/products');
+                if (res.ok) {
+                    products = await res.json();
+                }
+            } catch (e) { console.log('Error loading products'); }
+            renderProducts();
+            renderAdminProducts();
+        }
+
+        function renderCategoryTabs() {
+            const container = document.getElementById('categoryFilters');
+            const allCats = ['All', ...categories];
+            container.innerHTML = allCats.map(cat => `
+                <button onclick="selectCategory('${cat}')" class="cat-tab ${activeCategory === cat ? 'active' : ''}">${cat}</button>
+            `).join('');
+        }
+
+        function selectCategory(cat) {
+            activeCategory = cat;
+            renderCategoryTabs();
+            renderProducts();
+        }
+
+        function createProductCardHTML(p) {
+            const id = p._id || p.id;
+            const img = p.image || 'https://images.unsplash.com/photo-1578500494198-246f612d3b3d?auto=format&fit=crop&w=800&q=80';
+            const moq = p.minOrder || 1;
+            return `
+                <div class="product-card">
+                    <div class="product-img-box">
+                        <img src="${img}" alt="${p.name}" class="product-img">
+                    </div>
+                    <div class="product-details">
+                        <div>
+                            <span class="product-cat-tag">${p.category || 'Ceramic'}</span>
+                            <h4 class="product-title">${p.name}</h4>
+                            ${moq > 1 ? `<p class="product-moq">Minimum Order: ${moq} pcs</p>` : ''}
+                        </div>
+                        <div class="product-footer">
+                            <span class="product-price">&#2547;${p.price}</span>
+                            <button onclick="addToCart('${id}')" class="add-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderProducts() {
+            const featuredGrid = document.getElementById('featuredGrid');
+            const productGrid = document.getElementById('productGrid');
+            const featuredSection = document.getElementById('featuredMixSection');
+
+            if (!products || products.length === 0) {
+                featuredSection.classList.add('hidden');
+                productGrid.innerHTML = '<p style="color:#718096;grid-column:1/-1;text-align:center;padding:40px;">No products available right now. Add products from #admin-panel.</p>';
+                return;
+            }
+
+            featuredSection.classList.remove('hidden');
+            const featuredItems = products.slice(0, 3);
+            featuredGrid.innerHTML = featuredItems.map(createProductCardHTML).join('');
+
+            const filtered = activeCategory === 'All'
+                ? products
+                : products.filter(p => p.category === activeCategory);
+
+            productGrid.innerHTML = filtered.length
+                ? filtered.map(createProductCardHTML).join('')
+                : '<p style="color:#718096;grid-column:1/-1;text-align:center;padding:30px;">No items in this category yet.</p>';
+        }
+
+        function addToCart(id) {
+            const prod = products.find(p => (p._id || p.id) === id);
+            if (!prod) return;
+            const moq = Number(prod.minOrder) || 1;
+            const existing = cart.find(item => item.id === id);
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({
+                    id: id,
+                    name: prod.name,
+                    price: Number(prod.price),
+                    image: prod.image || '',
+                    minOrder: moq,
+                    qty: moq
+                });
+            }
+            saveCart();
+            updateCartUI();
+            toggleCart(true);
+        }
+
+        function updateCartQty(id, delta) {
+            const idx = cart.findIndex(i => i.id === id);
+            if (idx === -1) return;
+            const item = cart[idx];
+            const nextQty = item.qty + delta;
+            if (nextQty < (item.minOrder || 1)) {
+                cart.splice(idx, 1);
+            } else {
+                item.qty = nextQty;
+            }
+            saveCart();
+            updateCartUI();
+        }
+
+        function saveCart() {
+            localStorage.setItem('nureen_cart', JSON.stringify(cart));
+        }
+
+        function updateCartUI() {
+            const badge = document.getElementById('cartBadge');
+            const container = document.getElementById('cartItemsContainer');
+            const checkoutBox = document.getElementById('cartCheckoutBox');
+            const totalDisplay = document.getElementById('cartTotalDisplay');
+
+            const totalCount = cart.reduce((sum, i) => sum + i.qty, 0);
+            const totalPrice = cart.reduce((sum, i) => sum + (i.price * i.qty), 0);
+            badge.textContent = totalCount;
+
+            if (cart.length === 0) {
+                container.innerHTML = '<p style="text-align:center;color:#718096;margin-top:60px;">Your cart is currently empty.</p>';
+                checkoutBox.classList.add('hidden');
+                return;
+            }
+
+            checkoutBox.classList.remove('hidden');
+            totalDisplay.textContent = `\u09F3${totalPrice}`;
+            container.innerHTML = cart.map(item => `
+                <div class="cart-row">
+                    <img src="${item.image || 'https://images.unsplash.com/photo-1578500494198-246f612d3b3d?auto=format&fit=crop&w=200&q=80'}" class="cart-img">
+                    <div style="flex:1;">
+                        <h5 style="font-size:14px;font-weight:700;">${item.name}</h5>
+                        <p style="font-size:12px;color:var(--brand-green);font-weight:700;">&#2547;${item.price} x ${item.qty}</p>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:8px;">
+                        <button onclick="updateCartQty('${item.id}', -1)" style="width:28px;height:28px;border:1px solid #CBD5E0;background:white;border-radius:6px;cursor:pointer;">-</button>
+                        <span style="font-weight:700;font-size:13px;">${item.qty}</span>
+                        <button onclick="updateCartQty('${item.id}', 1)" style="width:28px;height:28px;border:1px solid #CBD5E0;background:white;border-radius:6px;cursor:pointer;">+</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function toggleCart(forceOpen) {
+            const drawer = document.getElementById('cartDrawer');
+            if (forceOpen === true) drawer.classList.remove('hidden');
+            else drawer.classList.toggle('hidden');
+        }
+
+        async function submitOrder(e) {
+            e.preventDefault();
+            const payload = {
+                customerName: document.getElementById('custName').value,
+                phone: document.getElementById('custPhone').value,
+                address: document.getElementById('custAddress').value,
+                items: cart,
+                totalAmount: cart.reduce((sum, i) => sum + (i.price * i.qty), 0)
+            };
+            try {
+                const res = await fetch('/api/orders', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                if (res.ok) {
+                    alert('Thank you! Your Cash on Delivery order has been placed successfully.');
+                    cart = [];
+                    saveCart();
+                    updateCartUI();
+                    toggleCart();
+                } else {
+                    alert('Failed to place order. Please try again.');
+                }
+            } catch (err) {
+                alert('Network error while placing order.');
+            }
+        }
+
+        /* Admin Logic */
+        function openAdminView() {
+            document.getElementById('publicSiteView').classList.add('hidden');
+            document.getElementById('fullAdminSection').classList.remove('hidden');
+            if (adminToken) {
+                document.getElementById('adminLoginView').classList.add('hidden');
+                document.getElementById('adminDashboardView').classList.remove('hidden');
+                loadAdminOrders();
+            }
+        }
+
+        function exitAdmin() {
+            window.location.hash = '';
+            document.getElementById('fullAdminSection').classList.add('hidden');
+            document.getElementById('publicSiteView').classList.remove('hidden');
+        }
+
+        async function handleAdminLogin(e) {
+            e.preventDefault();
+            const password = document.getElementById('adminPasswordInput').value;
+            try {
+                const res = await fetch('/api/admin/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ password })
+                });
+                if (res.ok) {
+                    const data = await res.json();
+                    adminToken = data.token || password;
+                    sessionStorage.setItem('nureen_admin_token', adminToken);
+                    document.getElementById('adminLoginView').classList.add('hidden');
+                    document.getElementById('adminDashboardView').classList.remove('hidden');
+                    loadAdminOrders();
+                } else {
+                    alert('Invalid Admin Password');
+                }
+            } catch (err) {
+                alert('Login error');
+            }
+        }
+
+        function switchAdminTab(tab) {
+            ['products', 'orders', 'settings'].forEach(t => {
+                document.getElementById(`admin${t.charAt(0).toUpperCase() + t.slice(1)}Tab`).classList.toggle('hidden', t !== tab);
+                const btn = document.getElementById(`tabBtn${t.charAt(0).toUpperCase() + t.slice(1)}`);
+                btn.style.color = t === tab ? 'var(--brand-green)' : '#718096';
+            });
+            if (tab === 'orders') loadAdminOrders();
+        }
+
+        function convertImageToBase64(input, targetInputId) {
+            const file = input.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById(targetInputId).value = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function renderAdminCategories() {
+            const chipList = document.getElementById('adminCategoryChipList');
+            const select = document.getElementById('prodCategorySelect');
+            chipList.innerHTML = categories.map(c => `
+                <span class="cat-chip">${c} <button type="button" onclick="deleteCategory('${c}')">&times;</button></span>
+            `).join('');
+            select.innerHTML = categories.map(c => `<option value="${c}">${c}</option>`).join('');
+        }
+
+        async function addNewCategory() {
+            const input = document.getElementById('newCatInput');
+            const name = input.value.trim();
+            if (!name) return;
+            try {
+                await fetch('/api/categories', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${adminToken}` },
+                    body: JSON.stringify({ name })
+                });
+            } catch (e) {}
+            if (!categories.includes(name)) categories.push(name);
+            input.value = '';
+            renderCategoryTabs();
+            renderAdminCategories();
+        }
+
+        async function deleteCategory(name) {
+            try {
+                await fetch(`/api/categories/${encodeURIComponent(name)}`, {
+                    method: 'DELETE',
+                    headers: { 'Authorization': `Bearer ${adminToken}` }
+                });
+            } catch (e) {}
+            categories = categories.filter(c => c !== name);
+            renderCategoryTabs();
+            renderAdminCategories();
+        }
+
+        async function saveProduct(e) {
+            e.preventDefault();
+            const editId = document.getElementById('editProductId').value;
+            const payload = {
+                name: document.getElementById('prodName').value,
+                category: document.getElementById('prodCategorySelect').value,
+                price: Number(document.getElementById('prodPrice').value),
+                minOrder: Number(document.getElementById('prodMinOrder').value) || 1,
+                image: document.getElementById('prodImage').value
+            };
+            const url = editId ? `/api/products/${editId}` : '/api/products';
+            const method = editId ? 'PUT' : 'POST';
+            const res = await fetch(url, {
+                method,
+                headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${adminToken}` },
+                body: JSON.stringify(payload)
+            });
+            if (res.ok) {
+                resetProductForm();
+                await loadProducts();
+            } else {
+                alert('Error saving product');
+            }
+        }
+
+        function editProduct(id) {
+            const p = products.find(item => (item._id || item.id) === id);
+            if (!p) return;
+            document.getElementById('editProductId').value = id;
+            document.getElementById('prodName').value = p.name;
+            document.getElementById('prodCategorySelect').value = p.category;
+            document.getElementById('prodPrice').value = p.price;
+            document.getElementById('prodMinOrder').value = p.minOrder || 1;
+            document.getElementById('prodImage').value = p.image || '';
+            document.getElementById('productFormTitle').textContent = 'Edit Product';
+            document.getElementById('btnSaveProd').textContent = 'Update Product';
+            document.getElementById('btnCancelEdit').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function resetProductForm() {
+            document.getElementById('editProductId').value = '';
+            document.getElementById('prodName').value = '';
+            document.getElementById('prodPrice').value = '';
+            document.getElementById('prodMinOrder').value = '1';
+            document.getElementById('prodImage').value = '';
+            document.getElementById('productFormTitle').textContent = 'Add New Product';
+            document.getElementById('btnSaveProd').textContent = 'Save Product';
+            document.getElementById('btnCancelEdit').classList.add('hidden');
+        }
+
+        async function deleteProduct(id) {
+            if (!confirm('Delete this product?')) return;
+            const res = await fetch(`/api/products/${id}`, {
+                method: 'DELETE',
+                headers: { 'Authorization': `Bearer ${adminToken}` }
+            });
+            if (res.ok) await loadProducts();
+        }
+
+        function renderAdminProducts() {
+            const list = document.getElementById('adminProductList');
+            if (!products || products.length === 0) {
+                list.innerHTML = '<p style="color:#718096;">No products found in database.</p>';
+                return;
+            }
+            list.innerHTML = products.map(p => {
+                const id = p._id || p.id;
+                return `
+                    <div style="display:flex;align-items:center;justify-content:space-between;background:white;padding:16px;border-radius:12px;border:1px solid #E2E8F0;margin-bottom:12px;">
+                        <div style="display:flex;align-items:center;gap:14px;">
+                            <img src="${p.image || 'https://images.unsplash.com/photo-1578500494198-246f612d3b3d?auto=format&fit=crop&w=150&q=80'}" style="width:52px;height:52px;object-fit:cover;border-radius:8px;">
+                            <div>
+                                <h5 style="font-weight:700;font-size:15px;">${p.name}</h5>
+                                <p style="font-size:12px;color:#718096;">${p.category} &bull; &#2547;${p.price} &bull; MOQ: ${p.minOrder || 1}</p>
+                            </div>
+                        </div>
+                        <div style="display:flex;gap:8px;">
+                            <button onclick="editProduct('${id}')" style="background:#EDF2F7;border:none;padding:8px 14px;border-radius:8px;font-weight:600;cursor:pointer;">Edit</button>
+                            <button onclick="deleteProduct('${id}')" style="background:#FED7D7;color:#9B2C2C;border:none;padding:8px 14px;border-radius:8px;font-weight:600;cursor:pointer;">Delete</button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        async function loadAdminOrders() {
+            try {
+                const res = await fetch('/api/orders', {
+                    headers: { 'Authorization': `Bearer ${adminToken}` }
+                });
+                if (res.ok) {
+                    const orders = await res.json();
+                    document.getElementById('adminOrdersCount').textContent = orders.length;
+                    const list = document.getElementById('adminOrdersList');
+                    list.innerHTML = orders.length ? orders.map(o => `
+                        <div style="background:white;padding:20px;border-radius:12px;border:1px solid #E2E8F0;margin-bottom:16px;">
+                            <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+                                <strong>${o.customerName} (${o.phone})</strong>
+                                <span style="font-weight:800;color:var(--brand-green);">&#2547;${o.totalAmount}</span>
+                            </div>
+                            <p style="font-size:13px;color:#4A5568;margin-bottom:8px;">Address: ${o.address}</p>
+                            <p style="font-size:12px;color:#718096;">Items: ${(o.items || []).map(i => `${i.name} x${i.qty}`).join(', ')}</p>
+                        </div>
+                    `).join('') : '<p style="color:#718096;">No orders received yet.</p>';
+                }
+            } catch (e) {}
+        }
+
+        async function saveStoreSettings(e) {
+            e.preventDefault();
+            const payload = {
+                logoUrl: document.getElementById('setLogoUrl').value,
+                heroImage: document.getElementById('setHeroImg').value,
+                heroTitle: document.getElementById('setHeroTitle').value,
+                heroSubtitle: document.getElementById('setHeroSubtitle').value,
+                facebookUrl: document.getElementById('setFbUrl').value,
+                instagramUrl: document.getElementById('setIgUrl').value,
+                whatsappNumber: document.getElementById('setWaNum').value
+            };
+            const res = await fetch('/api/settings', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${adminToken}` },
+                body: JSON.stringify(payload)
+            });
+            if (res.ok) {
+                storeSettings = { ...storeSettings, ...payload };
+                applySettingsUI();
+                alert('Store settings updated!');
+            } else {
+                alert('Failed to save settings.');
+            }
+        }
+
+        initApp();
+    </script>
+</body>
+</html>
