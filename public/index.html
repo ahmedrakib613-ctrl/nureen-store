@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nureen | Luxury Ceramic Tableware & Home Decor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --brand-green: #2D4F36;
+            --brand-green-dark: #1C3524;
+            --brand-green-light: #4C7355;
+            --brand-gold: #C5A880;
+            --bg-white: #FFFFFF;
+            --bg-offwhite: #F8FAF9;
+            --text-dark: #111827;
+            --border-light: #D1D5DB;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Bengali", sans-serif; }
+        html { scroll-behavior: smooth; }
+        body { background-color: var(--bg-offwhite); color: var(--text-dark); min-height: 100vh; display: flex; flex-direction: column; }
+
+        @keyframes fadeSlideUp {
+            from { opacity: 0; transform: translateY(14px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes imagePopIn {
+            0% { opacity: 0.45; transform: scale(0.95); }
+            60% { opacity: 1; transform: scale(1.02); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 4px 14px rgba(45, 79, 54, 0.25); }
+            50% { box-shadow: 0 6px 22px rgba(45, 79, 54, 0.45); }
+        }
+
+        .announcement-bar { background-color: var(--brand-green); color: #FFFFFF; font-size: 12px; padding: 8px 16px; text-align: center; font-weight: 600; }
+
+        /* Sticky Header + Professional Top Category & Search Bar */
+        header { position: sticky; top: 0; z-index: 40; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border-light); }
+        .header-wrap { max-width: 1280px; margin: 0 auto; padding: 10px 18px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+        .brand-logo-default { width: 44px; height: 44px; border-radius: 50%; background-color: var(--brand-green); color: white; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; border: 2px solid var(--brand-gold); }
+        .brand-custom-logo { display: block; width: 165px; height: 48px; object-fit: contain; border-radius: 10px; }
+        .brand-title { font-size: 23px; font-weight: 800; color: var(--brand-green); line-height: 1; }
+        .brand-title span { color: var(--brand-gold); }
+        .brand-sub { font-size: 10px; color: #4B5563; text-transform: uppercase; letter-spacing: 2px; margin-top: 4px; font-weight: 700; }
+
+        .header-search-box { flex: 1; min-width: 210px; max-width: 420px; position: relative; }
+        .header-search-input { width: 100%; padding: 9px 38px 9px 14px; border-radius: 999px; border: 1.5px solid #CBD5E1; background: #F8FAF9; font-size: 13px; font-weight: 600; color: #111827; outline: none; transition: border-color 0.2s; }
+        .header-search-input:focus { border-color: var(--brand-green); background: #FFFFFF; }
+        .header-search-icon { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: #4B5563; font-size: 13px; pointer-events: none; }
+
+        .header-actions { display: flex; align-items: center; gap: 8px; }
+        .call-pill { display: inline-flex; align-items: center; gap: 6px; padding: 9px 14px; border-radius: 999px; background: var(--brand-green); color: #FFFFFF; text-decoration: none; font-size: 12px; font-weight: 800; white-space: nowrap; }
+        .cart-btn { position: relative; padding: 9px 16px; border-radius: 9999px; background-color: #ECFDF5; color: var(--brand-green); border: 1.5px solid var(--brand-green); cursor: pointer; display: flex; align-items: center; gap: 7px; font-weight: 800; font-size: 13px; white-space: nowrap; }
+        .cart-badge { background: var(--brand-green); color: #FFFFFF; font-size: 11px; font-weight: 800; padding: 2px 7px; border-radius: 999px; }
+
+        .top-nav-strip { background: #F8FAF9; border-top: 1px solid #E5E7EB; }
+        .top-nav-inner { max-width: 1280px; margin: 0 auto; padding: 8px 18px; display: flex; align-items: center; gap: 8px; overflow-x: auto; white-space: nowrap; }
+        .top-nav-btn { padding: 6px 14px; border-radius: 999px; border: 1px solid #D1D5DB; background: #FFFFFF; color: #1F2937; font-size: 12px; font-weight: 700; cursor: pointer; transition: all 0.2s; }
+        .top-nav-btn:hover, .top-nav-btn.active { background: var(--brand-green); color: #FFFFFF; border-color: var(--brand-green); }
+
+        .hero { position: relative; background: linear-gradient(135deg, var(--brand-green-dark), var(--brand-green), var(--brand-green-light)); color: white; min-height: 410px; display: flex; align-items: center; overflow: hidden; }
+        .hero-img-bg { position: absolute; inset: 0; opacity: 0.25; width: 100%; height: 100%; object-fit: cover; }
+        .hero-container { max-width: 1280px; margin: 0 auto; padding: 50px 24px; position: relative; z-index: 2; max-width: 720px; animation: fadeSlideUp 0.5s ease; }
+        .hero-tag { background: rgba(255, 255, 255, 0.16); color: var(--brand-gold); font-size: 11px; font-weight: 700; padding: 6px 16px; border-radius: 9999px; text-transform: uppercase; margin-bottom: 16px; display: inline-block; }
+        .hero h2 { font-size: 38px; font-weight: 800; line-height: 1.15; margin-bottom: 14px; }
+        .hero p { font-size: 16px; color: #ECFDF5; margin-bottom: 26px; font-weight: 300; }
+        .hero-btn { background-color: var(--brand-gold); color: var(--brand-green-dark); font-weight: 800; padding: 13px 28px; border-radius: 12px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+
+        .main-container { max-width: 1280px; margin: 0 auto; padding: 40px 18px; flex: 1; width: 100%; }
+        .section-badge { display: inline-block; background: rgba(45, 79, 54, 0.12); color: var(--brand-green); font-size: 11px; font-weight: 800; padding: 4px 12px; border-radius: 9999px; text-transform: uppercase; margin-bottom: 8px; }
+        .section-title { font-size: 28px; font-weight: 800; color: var(--brand-green); }
+        .section-desc { color: #4B5563; font-size: 14px; margin-top: 4px; }
+        .featured-layer { background: #FFFFFF; border: 1px solid var(--border-light); border-radius: 20px; padding: 24px; margin-bottom: 40px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
+
+        .shop-header { display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px; }
+        @media(min-width: 768px) { .shop-header { flex-direction: row; align-items: flex-end; justify-content: space-between; } }
+        .cat-filters { display: flex; flex-wrap: wrap; gap: 8px; }
+        .cat-tab { padding: 8px 16px; border-radius: 9999px; font-size: 13px; font-weight: 700; border: 1px solid var(--border-light); background-color: white; color: #374151; cursor: pointer; transition: all 0.2s; }
+        .cat-tab.active { background-color: var(--brand-green); color: white; border-color: var(--brand-green); }
+
+        .product-grid { display: grid; grid-template-columns: repeat(1, 1fr); gap: 22px; }
+        @media(min-width: 640px) { .product-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media(min-width: 1024px) { .product-grid { grid-template-columns: repeat(3, 1fr); } }
+
+        .product-card { background: white; border-radius: 16px; border: 1px solid var(--border-light); overflow: hidden; display: flex; flex-direction: column; transition: transform 0.25s ease, box-shadow 0.25s ease; animation: fadeSlideUp 0.4s ease; }
+        .product-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px -8px rgba(45, 79, 54, 0.16); }
+        .product-img-box { height: 245px; background-color: #F8FAF9; position: relative; overflow: hidden; }
+        .product-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.35s ease; }
+        .product-card:hover .product-img { transform: scale(1.04); }
+        .product-details { padding: 18px; display: flex; flex-direction: column; flex: 1; justify-content: space-between; }
+        .product-cat-tag { font-size: 10px; font-weight: 800; color: var(--brand-green-light); text-transform: uppercase; letter-spacing: 1.5px; }
+        .product-title { font-size: 17px; font-weight: 700; color: #111827; margin-top: 4px; }
+        .product-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 16px; padding-top: 12px; border-top: 1px solid #E5E7EB; gap: 8px; flex-wrap: wrap; }
+
+        /* Same Font Size for Discount Old Price & Now Price */
+        .price-stack { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+        .old-price-cut { font-size: 18px; color: #DC2626; font-weight: 800; text-decoration: line-through; }
+        .now-price-big { font-size: 18px; font-weight: 800; color: var(--brand-green); }
+        .unit-tag-sm { font-size: 12px; font-weight: 700; color: #4B5563; }
+
+        .card-actions { display: flex; gap: 6px; align-items: center; }
+        .add-btn { background-color: var(--brand-green); color: white; border: none; padding: 9px 13px; border-radius: 10px; font-size: 12px; font-weight: 700; cursor: pointer; white-space: nowrap; transition: all 0.15s ease; }
+        .add-btn:disabled { background-color: #6B7280; cursor: not-allowed; opacity: 0.85; }
+
+        .details-btn { background: #ECFDF5; color: var(--brand-green); border: 1.5px solid var(--brand-green); padding: 8px 12px; border-radius: 10px; font-size: 12px; font-weight: 800; cursor: pointer; white-space: nowrap; }
+        .details-btn:disabled { background: #F3F4F6; color: #9CA3AF; border-color: #D1D5DB; cursor: not-allowed; opacity: 0.7; }
+
+        /* Product Details Popup Modal */
+        .modal-bg { position: fixed; inset: 0; z-index: 60; background: rgba(0,0,0,0.55); display: flex; align-items: center; justify-content: center; padding: 16px; }
+        .modal-card { background: #FFFFFF; max-width: 480px; width: 100%; border-radius: 18px; padding: 22px; border: 1.5px solid var(--brand-green); box-shadow: 0 20px 40px rgba(0,0,0,0.2); animation: fadeSlideUp 0.25s ease; }
+
+        /* Landing Page (#lp/slug) */
+        .lp-shell { max-width: 680px; margin: 0 auto; padding: 18px 14px 60px; }
+        .lp-card { background: #FFFFFF; border: 1px solid var(--border-light); border-radius: 20px; padding: 18px; margin-bottom: 16px; box-shadow: 0 4px 16px rgba(45, 79, 54, 0.06); animation: fadeSlideUp 0.4s ease; }
+        .lp-badge { display: inline-block; background: #ECFDF5; color: var(--brand-green); border: 1.5px solid var(--brand-green); font-size: 12px; font-weight: 800; padding: 4px 12px; border-radius: 999px; margin-bottom: 10px; }
+        .lp-title { font-size: 23px; font-weight: 800; color: #111827; line-height: 1.32; margin-bottom: 10px; }
+
+        /* Equal Size for Real Cut Price & Discount Now Price right below Title */
+        .lp-price-box { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; background: #F8FAF9; padding: 10px 14px; border-radius: 12px; border: 1px solid #E5E7EB; }
+        .lp-old-cut { font-size: 24px; color: #DC2626; font-weight: 800; text-decoration: line-through; }
+        .lp-now-price { font-size: 24px; font-weight: 900; color: var(--brand-green); }
+
+        .lp-gallery-main { width: 100%; height: 350px; object-fit: cover; border-radius: 16px; border: 1.5px solid var(--border-light); background: #F8FAF9; cursor: pointer; transition: transform 0.3s ease; }
+        .lp-gallery-main:active { transform: scale(0.98); }
+        .lp-img-animate { animation: imagePopIn 0.38s cubic-bezier(0.22, 1, 0.36, 1); }
+
+        .lp-thumbs { display: flex; gap: 8px; margin-top: 10px; overflow-x: auto; padding-bottom: 4px; }
+        .lp-thumb { width: 64px; height: 64px; border-radius: 10px; object-fit: cover; border: 2px solid #E5E7EB; cursor: pointer; flex-shrink: 0; transition: transform 0.2s ease, border-color 0.2s ease; }
+        .lp-thumb:hover { transform: translateY(-2px) scale(1.04); }
+        .lp-thumb.active { border-color: var(--brand-green); transform: scale(1.05); box-shadow: 0 3px 10px rgba(45,79,54,0.22); }
+
+        .option-label { display: block; font-size: 14px; font-weight: 800; color: var(--brand-green); margin-bottom: 8px; }
+        .variant-grid { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 14px; }
+        .variant-chip { border: 1.5px solid #9CA3AF; background: #FFFFFF; color: #111827; padding: 7px 11px; border-radius: 9px; text-align: center; cursor: pointer; font-weight: 800; font-size: 12px; transition: all 0.15s ease; }
+        .variant-chip.active { border-color: var(--brand-green); background: var(--brand-green); color: #FFFFFF; transform: translateY(-1px); }
+
+        .quick-add-color-bar { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+        .quick-color-btn { background: #ECFDF5; color: var(--brand-green); border: 1px solid var(--brand-green); border-radius: 8px; padding: 5px 10px; font-size: 12px; font-weight: 700; cursor: pointer; }
+
+        .qty-box { display: inline-flex; align-items: center; border: 1.5px solid var(--brand-green); border-radius: 10px; overflow: hidden; background: #FFFFFF; }
+        .qty-box button { width: 38px; height: 38px; border: none; background: #ECFDF5; color: var(--brand-green); font-size: 18px; font-weight: 800; cursor: pointer; }
+        .qty-box span { padding: 0 16px; font-weight: 800; font-size: 15px; color: #111827; }
+
+        .lp-cta-group { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 14px; }
+        @media(min-width: 480px) { .lp-cta-group { grid-template-columns: 1fr 1fr; } }
+        .btn-order-now { background: linear-gradient(135deg, var(--brand-green-dark), var(--brand-green)); color: #FFFFFF; border: 2px solid var(--brand-gold); padding: 14px 16px; border-radius: 12px; font-size: 15px; font-weight: 800; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px; animation: pulseGlow 2.4s infinite; transition: transform 0.15s ease; }
+        .btn-order-now:active { transform: scale(0.97); }
+        .btn-add-cart-bn { background: #ECFDF5; color: var(--brand-green); border: 2px solid var(--brand-green); padding: 13px 16px; border-radius: 12px; font-size: 14px; font-weight: 800; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+
+        .contact-bar-bn { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
+        .btn-call-bn { background: #1D4ED8; color: #FFFFFF; border: none; padding: 12px 14px; border-radius: 12px; font-size: 13px; font-weight: 800; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 7px; }
+        .btn-wa-bn { background: #16A34A; color: #FFFFFF; border: none; padding: 12px 14px; border-radius: 12px; font-size: 13px; font-weight: 800; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 7px; }
+
+        .cod-box { background: #F8FAF9; border: 1.5px solid var(--brand-green); border-radius: 16px; padding: 16px; }
+        .summary-line { display: flex; justify-content: space-between; font-size: 14px; padding: 6px 0; color: #1F2937; }
+        .summary-total { display: flex; justify-content: space-between; font-size: 18px; font-weight: 900; color: var(--brand-green); border-top: 1.5px dashed var(--brand-green); padding-top: 10px; margin-top: 6px; }
+
+        footer { background-color: var(--brand-green-dark); color: #E2E8F0; margin-top: auto; padding: 36px 20px; border-top: 3px solid var(--brand-gold); }
+        .footer-wrap { max-width: 1280px; margin: 0 auto; display: flex; flex-direction: column; justify-content: space-between; align-items: center; gap: 16px; text-align: center; }
+        @media(min-width: 768px) { .footer-wrap { flex-direction: row; text-align: left; } }
+        .social-links { display: flex; gap: 12px; margin-top: 8px; }
+        .social-icon { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.14); color: white; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; font-size: 16px; }
+
+        #fullAdminSection { min-height: 100vh; background-color: #F8FAF9; display: flex; flex-direction: column; }
+        .admin-nav { background: var(--brand-green-dark); color: white; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; border-bottom: 3px solid var(--brand-gold); flex-wrap: wrap; gap: 12px; }
+        .admin-container { max-width: 1200px; margin: 32px auto; padding: 0 20px; width: 100%; flex: 1; }
+        .form-control { margin-bottom: 14px; }
+        .form-label { display: block; font-size: 12px; font-weight: 800; color: #111827; margin-bottom: 6px; }
+        .size-hint { font-size: 11px; color: #7C5E32; font-weight: 700; margin-top: 5px; display: block; }
+        .form-input, .form-select, .form-textarea { width: 100%; padding: 12px 14px; border: 1.5px solid #9CA3AF; border-radius: 10px; font-size: 14px; font-weight: 600; color: #111827; background: #FFFFFF; outline: none; }
+        .form-textarea { min-height: 78px; resize: vertical; }
+        .btn-primary { width: 100%; background: var(--brand-green); color: white; padding: 12px 18px; border: none; border-radius: 10px; font-weight: 800; cursor: pointer; font-size: 14px; }
+        .btn-back { background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.3); padding: 8px 16px; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600; }
+        .cat-chip { display: inline-flex; align-items: center; gap: 8px; background: white; border: 1px solid #CBD5E0; color: #111827; font-size: 13px; padding: 6px 14px; border-radius: 10px; margin-right: 8px; margin-bottom: 8px; }
+        .cat-chip button { background: #EDF2F7; border: none; border-radius: 4px; color: #374151; padding: 2px 6px; cursor: pointer; font-size: 12px; font-weight: bold; }
+
+        .drawer-bg { position: fixed; inset: 0; z-index: 50; background: rgba(0,0,0,0.5); backdrop-filter: blur(2px); display: flex; justify-content: flex-end; }
+        .drawer-box { background: white; width: 100%; max-width: 440px; height: 100%; padding: 24px; display: flex; flex-direction: column; box-shadow: -10px 0 30px rgba(0,0,0,0.15); overflow-y: auto; }
+        .cart-row { display: flex; align-items: center; gap: 14px; background: #F8FAF9; padding: 12px; border-radius: 12px; border: 1px solid var(--border-light); margin-bottom: 12px; }
+        .cart-img { width: 60px; height: 60px; object-fit: cover; border-radius: 8px; }
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+
+    <!-- Main Storefront View -->
+    <div id="publicSiteView">
+        <div class="announcement-bar">
+            Premium Quality Bangladeshi Ceramic Tableware &bull; Cash on Delivery Available Nationwide!
+        </div>
+
+        <header>
+            <div class="header-wrap">
+                <div style="display:flex;align-items:center;gap:12px;cursor:pointer;" onclick="navigateToHome()">
+                    <div id="brandLogoContainer"></div>
+                </div>
+
+                <!-- Top Search Bar -->
+                <div class="header-search-box">
+                    <input type="text" id="mainSearchInput" oninput="handleSearchInput(this.value)" placeholder="প্রোডাক্ট খুঁজুন (Search plates, mugs, bowls)..." class="header-search-input">
+                    <i class="fas fa-search header-search-icon"></i>
+                </div>
+
+                <div class="header-actions">
+                    <a id="headerCallBtn" href="tel:+8801700000000" class="call-pill hidden">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>কল করুন</span>
+                    </a>
+                    <button type="button" onclick="toggleCart()" class="cart-btn">
+                        <span>Cart</span>
+                        <span id="cartBadge" class="cart-badge">0</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Top E-Commerce Navigation Strip (Home + All + Categories) -->
+            <div class="top-nav-strip">
+                <div id="topCategoryNav" class="top-nav-inner"></div>
+            </div>
+        </header>
+
+        <section class="hero">
+            <img id="heroImageDisplay" class="hero-img-bg" src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=1600&q=80" alt="Cover Banner">
+            <div class="hero-container">
+                <span class="hero-tag">Handcrafted Elegance</span>
+                <h2 id="heroTitleDisplay">Crafted Ceramics for Timeless Homes</h2>
+                <p id="heroSubtitleDisplay">Explore handcrafted tableware, porcelain dinner sets, glass dish collections, and exquisite home decor items designed for modern living in Bangladesh.</p>
+                <a href="#shop" class="hero-btn">Explore Collection &rarr;</a>
+            </div>
+        </section>
+
+        <main id="shop" class="main-container">
+            <div id="featuredMixSection" class="featured-layer">
+                <span class="section-badge">Featured Showcase</span>
+                <h3 class="section-title">Special Mix Selection</h3>
+                <p class="section-desc" style="margin-bottom:24px;">Handpicked best-sellers across all ceramic categories</p>
+                <div id="featuredGrid" class="product-grid"></div>
+            </div>
+
+            <div class="shop-header">
+                <div>
+                    <span class="section-badge">Our Collection</span>
+                    <h3 id="shopTitleDisplay" class="section-title">Our Collection</h3>
+                    <p id="shopDescDisplay" class="section-desc">Browse premium tableware and home decor pieces by category.</p>
+                </div>
+                <div id="categoryFilters" class="cat-filters"></div>
+            </div>
+            <div id="productGrid" class="product-grid"></div>
+        </main>
+
+        <footer>
+            <div class="footer-wrap">
+                <div>
+                    <h4 style="font-size:18px;font-weight:700;color:white;">Nureen Tableware &amp; Decor</h4>
+                    <p style="font-size:13px;color:#CBD5E0;margin-top:4px;">Brought to you from Dhaka, Bangladesh.</p>
+                </div>
+                <div id="footerSocialArea" class="social-links"></div>
+                <p style="font-size:12px;color:#A0AEC0;">&copy; 2026 Nureen. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Separate Landing Page View (#lp/slug) — With Regular Website Top Header, Search & Categories -->
+    <div id="landingPageView" class="hidden" style="background:#FFFFFF;min-height:100vh;display:flex;flex-direction:column;">
+        <div class="announcement-bar">
+            Premium Quality Bangladeshi Ceramic Tableware &bull; Cash on Delivery Available Nationwide!
+        </div>
+        <header>
+            <div class="header-wrap">
+                <div style="display:flex;align-items:center;gap:10px;cursor:pointer;" onclick="navigateToHome()">
+                    <div id="lpBrandLogoContainer"></div>
+                </div>
+
+                <!-- Same Top Search Bar on Landing Page -->
+                <div class="header-search-box">
+                    <input type="text" id="lpSearchInput" onkeydown="if(event.key==='Enter'){jumpToStoreSearch(this.value);}" placeholder="প্রোডাক্ট খুঁজুন..." class="header-search-input">
+                    <i class="fas fa-search header-search-icon"></i>
+                </div>
+
+                <div class="header-actions">
+                    <button type="button" onclick="toggleCart()" class="cart-btn">
+                        <span>Cart</span>
+                        <span id="lpCartBadge" class="cart-badge">0</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Same Top Home + Categories Bar on Landing Page -->
+            <div class="top-nav-strip">
+                <div id="lpTopCategoryNav" class="top-nav-inner"></div>
+            </div>
+        </header>
+
+        <div id="lpContentArea" class="lp-shell" style="flex:1;"></div>
+
+        <footer>
+            <div class="footer-wrap">
+                <div>
+                    <h4 style="font-size:18px;font-weight:700;color:white;">Nureen</h4>
+                    <p style="font-size:13px;color:#CBD5E0;margin-top:4px;">Cash on Delivery Available Across Bangladesh</p>
+                </div>
+                <p style="font-size:12px;color:#A0AEC0;">&copy; 2026 Nureen. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- General Product Details Popup Modal -->
+    <div id="productDetailsModal" class="modal-bg hidden" onclick="if(event.target===this)closeProductDetails()">
+        <div class="modal-card">
+            <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #E5E7EB;padding-bottom:12px;margin-bottom:14px;">
+                <h3 id="detailModalTitle" style="font-size:18px;font-weight:800;color:var(--brand-green);">Product Details</h3>
+                <button type="button" onclick="closeProductDetails()" style="background:none;border:none;font-size:24px;cursor:pointer;color:#374151;">&times;</button>
+            </div>
+            <img id="detailModalImg" src="" alt="" style="width:100%;height:220px;object-fit:cover;border-radius:12px;margin-bottom:14px;">
+            <div id="detailModalPrice" style="margin-bottom:12px;"></div>
+            <p id="detailModalText" style="font-size:14px;line-height:1.65;color:#1F2937;white-space:pre-line;margin-bottom:18px;"></p>
+            <button type="button" onclick="closeProductDetails()" class="btn-primary">Close</button>
+        </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div id="fullAdminSection" class="hidden">
+        <div class="admin-nav">
+            <div style="display:flex;align-items:center;gap:12px;">
+                <span style="font-size:20px;">&#9881;</span>
+                <div>
+                    <h3 style="font-size:18px;font-weight:800;">Nureen Admin Dashboard</h3>
+                    <p style="font-size:11px;color:var(--brand-gold);">Server-Protected Auth &bull; Telegram Alerts Ready</p>
+                </div>
+            </div>
+            <button type="button" onclick="exitAdmin()" class="btn-back">&larr; Back to Website</button>
+        </div>
+
+        <div class="admin-container">
+            <div id="adminLoginView" style="text-align:center;max-width:380px;margin:80px auto;background:white;padding:40px;border-radius:16px;border:1px solid #E2E8F0;">
+                <h4 style="font-size:22px;font-weight:800;color:var(--brand-green);margin-bottom:8px;">Admin Authentication</h4>
+                <p style="font-size:13px;color:#718096;margin-bottom:24px;">Enter your admin password to unlock dashboard access.</p>
+                <form onsubmit="handleAdminLogin(event)" class="form-control">
+                    <input type="password" id="adminPasswordInput" placeholder="Enter Admin Password" class="form-input" style="text-align:center;letter-spacing:2px;font-size:16px;" required>
+                    <button type="submit" id="adminLoginBtn" class="btn-primary" style="padding:14px;margin-top:12px;">Unlock Dashboard</button>
+                </form>
+            </div>
+
+            <div id="adminDashboardView" class="hidden">
+                <div style="display:flex;gap:20px;border-bottom:2px solid #E2E8F0;padding-bottom:12px;margin-bottom:28px;flex-wrap:wrap;">
+                    <button type="button" onclick="switchAdminTab('products')" id="tabBtnProducts" style="background:none;border:none;font-weight:700;color:var(--brand-green);cursor:pointer;font-size:15px;">Manage Products &amp; Categories</button>
+                    <button type="button" onclick="switchAdminTab('landingPages')" id="tabBtnLandingPages" style="background:none;border:none;font-weight:600;color:#718096;cursor:pointer;font-size:15px;">Product Landing Pages</button>
+                    <button type="button" onclick="switchAdminTab('orders')" id="tabBtnOrders" style="background:none;border:none;font-weight:600;color:#718096;cursor:pointer;font-size:15px;">Customer Orders (<span id="adminOrdersCount">0</span>)</button>
+                    <button type="button" onclick="switchAdminTab('settings')" id="tabBtnSettings" style="background:none;border:none;font-weight:600;color:#718096;cursor:pointer;font-size:15px;">Store Branding &amp; Pages</button>
+                </div>
+
+                <!-- Products Tab -->
+                <div id="adminProductsTab">
+                    <div style="background:white;padding:20px;border-radius:16px;border:1px solid #E2E8F0;margin-bottom:24px;">
+                        <h4 style="font-size:15px;font-weight:700;color:var(--brand-green);margin-bottom:8px;">Manage Categories</h4>
+                        <div style="display:flex;gap:12px;margin-bottom:14px;flex-wrap:wrap;">
+                            <input type="text" id="newCatInput" placeholder="New Category Name (e.g. Bowls, Mugs)" class="form-input" style="max-width:360px;">
+                            <button type="button" onclick="addNewCategory()" class="btn-primary" style="width:auto;padding:0 22px;">+ Add Category</button>
+                        </div>
+                        <div id="adminCategoryChipList"></div>
+                    </div>
+
+                    <form onsubmit="saveProduct(event)" style="background:white;padding:24px;border-radius:16px;border:1px solid #E2E8F0;margin-bottom:32px;">
+                        <h4 id="productFormTitle" style="font-size:16px;font-weight:700;color:var(--brand-green);margin-bottom:16px;">Add New Product</h4>
+                        <input type="hidden" id="editProductId">
+                        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(210px, 1fr));gap:18px;">
+                            <div class="form-control">
+                                <label class="form-label">Product Name</label>
+                                <input type="text" id="prodName" required class="form-input" placeholder="e.g. Ceramic Dinner Plate / Bowl Set">
+                            </div>
+                            <div class="form-control">
+                                <label class="form-label">Assign Category</label>
+                                <select id="prodCategorySelect" required class="form-select"></select>
+                            </div>
+                            <div class="form-control">
+                                <label class="form-label">Real / Regular Price (আসল দাম &#2547;)</label>
+                                <input type="number" id="prodPrice" min="1" required class="form-input" placeholder="1000">
+                            </div>
+                            <div class="form-control">
+                                <label class="form-label">Discount / Now Price (বর্তমান দাম &#2547; — ঐচ্ছিক)</label>
+                                <input type="number" id="prodOfferPrice" min="0" class="form-input" placeholder="850 (ছাড় থাকলে দিন)">
+                            </div>
+                            <div class="form-control">
+                                <label class="form-label">Items per Pack / Unit Qty</label>
+                                <input type="number" id="prodUnitQty" min="1" value="6" required class="form-input" placeholder="6">
+                            </div>
+                            <div class="form-control">
+                                <label class="form-label">Unit Label</label>
+                                <select id="prodUnitLabel" class="form-select">
+                                    <option value="pc">Single Piece (pc)</option>
+                                    <option value="pcs" selected>Pack / Multiple Pieces (pcs)</option>
+                                    <option value="Set">Set</option>
+                                </select>
+                            </div>
+                            <div class="form-control">
+                                <label class="form-label">Product Image (Auto Compressed)</label>
+                                <input type="file" accept="image/*" onchange="handleCompressedSingleImage(this, 'prodImage', 900)" class="form-input" style="padding:7px;">
+                                <input type="hidden" id="prodImage">
+                                <span id="prodImgStatus" class="size-hint">Fast auto-compression enabled</span>
+                            </div>
+                        </div>
+
+                        <div class="form-control">
+                            <label class="form-label">Product Details (খালি রাখলে Details বাটন কাজ করবে না)</label>
+                            <textarea id="prodDetails" class="form-textarea" placeholder="প্রোডাক্টের সাইজ, ম্যাটেরিয়াল ও বিস্তারিত তথ্য লিখুন..."></textarea>
+                        </div>
+
+                        <div style="display:flex;gap:12px;margin-top:8px;">
+                            <button type="submit" id="btnSaveProd" class="btn-primary" style="width:auto;padding:12px 32px;">Save Product</button>
+                            <button type="button" id="btnCancelEdit" onclick="resetProductForm()" class="hidden" style="background:#EDF2F7;border:none;padding:12px 24px;border-radius:10px;font-weight:700;cursor:pointer;">Cancel</button>
+                        </div>
+                    </form>
+
+                    <h4 style="font-weight:700;font-size:18px;margin-bottom:16px;color:var(--brand-green);">Active Store Inventory</h4>
+                    <div id="adminProductList"></div>
+                </div>
+
+                <!-- Landing Pages Tab -->
+                <div id="adminLandingPagesTab" class="hidden">
+                    <form onsubmit="saveLandingPage(event)" style="background:white;padding:24px;border-radius:16px;border:1px solid #E2E8F0;margin-bottom:28px;">
+                        <h4 id="lpFormTitle" style="font-size:17px;font-weight:800;color:var(--brand-green);margin-bottom:16px;">Create / Edit Product Landing Page</h4>
+                        <input type="hidden" id="lpEditId">
+
+                        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));gap:18px;">
+                            <div class="form-control">
+                                <label class="form-label">Landing Page Title</label>
+                                <input type="text" id="lpTitle" required class="form-input" placeholder="e.g. ৬ পিসের কালারফুল সিরামিক বাটি সেট">
+                            </div>
+                            <div class="form-control">
+                                <label class="form-label">Unique URL Slug</label>
+                                <input type="text" id="lpSlug" required class="form-input" placeholder="e.g. colourful-bowl-6-pcs" oninput="this.value = sanitizeSlug(this.value)">
+                                <span class="size-hint">Link: #lp/<span id="lpSlugPreview">your-slug</span></span>
+                            </div>
+                            <div class="form-control">
+                                <label class="form-label">Real Price (আসল দাম &#2547;)</label>
+                                <input type="number" id="lpPrice" min="1" required class="form-input" placeholder="1500">
+                            </div>
+                            <div class="form-control">
+                                <label class="form-label">Discount / Now Price (বর্তমান দাম &#2547; — ঐচ্ছিক)</label>
+                                <input type="number" id="lpOfferPrice" min="0" class="form-input" placeholder="1250">
+                            </div>
+                            <div class="form-control">
+                                <label class="form-label">ঢাকার ভেতর ডেলিভারি চার্জ (&#2547;)</label>
+                                <input type="number" id="lpDeliveryInside" min="0" value="70" required class="form-input">
+                            </div>
+                            <div class="form-control">
+                                <label class="form-label">ঢাকার বাইরে ডেলিভারি চার্জ (&#2547;)</label>
+                                <input type="number" id="lpDeliveryOutside" min="0" value="130" required class="form-input">
+                            </div>
+                        </div>
+
+                        <div class="form-control">
+                            <label class="form-label">Product Details</label>
+                            <textarea id="lpDescription" class="form-textarea" placeholder="প্রোডাক্টের বিস্তারিত তথ্য লিখুন..."></textarea>
+                        </div>
+
+                        <div class="form-control">
+                            <label class="form-label">Multiple Product Photos (১ম ছবি বড় হবে, বাকিগুলো নিচে থাকবে)</label>
+                            <input type="file" accept="image/*" multiple onchange="handleLpImagesUpload(this)" class="form-input" style="padding:7px;">
+                            <div id="lpUploadedThumbs" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;"></div>
+                        </div>
+
+                        <div class="form-control" style="background:#F8FAF9;padding:14px;border-radius:12px;border:1px solid #9CA3AF;">
+                            <label class="form-label">Color / Pack Options (প্রতি লাইনে একটি)</label>
+                            <textarea id="lpVariantsText" class="form-textarea" placeholder="৬ পিস গ্রিন&#10;৬ পিস রেড&#10;৬ আইটেম ৬ কালার"></textarea>
+                            <div class="quick-add-color-bar">
+                                <button type="button" onclick="appendQuickColorOption('৬ পিস গ্রিন')" class="quick-color-btn">+ ৬ পিস গ্রিন</button>
+                                <button type="button" onclick="appendQuickColorOption('৬ পিস রেড')" class="quick-color-btn">+ ৬ পিস রেড</button>
+                                <button type="button" onclick="appendQuickColorOption('৬ আইটেম ৬ কালার')" class="quick-color-btn">+ ৬ আইটেম ৬ কালার</button>
+                                <button type="button" onclick="appendQuickColorOption('ব্লু')" class="quick-color-btn">+ ব্লু</button>
+                                <button type="button" onclick="appendQuickColorOption('হোয়াইট')" class="quick-color-btn">+ হোয়াইট</button>
+                                <button type="button" onclick="appendQuickColorOption('ব্ল্যাক')" class="quick-color-btn">+ ব্ল্যাক</button>
+                                <button type="button" onclick="appendQuickColorOption('পিঙ্ক')" class="quick-color-btn">+ পিঙ্ক</button>
+                                <button type="button" onclick="appendQuickColorOption('গোল্ড')" class="quick-color-btn">+ গোল্ড</button>
+                            </div>
+                        </div>
+
+                        <div style="display:flex;gap:12px;">
+                            <button type="submit" class="btn-primary" style="width:auto;padding:12px 28px;">Save Landing Page</button>
+                            <button type="button" onclick="resetLpForm()" style="background:#E5E7EB;color:#111827;border:none;padding:12px 20px;border-radius:10px;font-weight:700;cursor:pointer;">Reset</button>
+                        </div>
+                    </form>
+
+                    <h4 style="font-weight:800;font-size:17px;color:var(--brand-green);margin-bottom:14px;">Saved Landing Pages</h4>
+                    <div id="adminLpList"></div>
+                </div>
+
+                <!-- Orders Tab -->
+                <div id="adminOrdersTab" class="hidden">
+                    <h4 style="font-weight:700;font-size:18px;margin-bottom:16px;color:var(--brand-green);">Customer Cash on Delivery Orders</h4>
+                    <div id="adminOrdersList"></div>
+                </div>
+
+                <!-- Settings Tab -->
+                <div id="adminSettingsTab" class="hidden">
+                    <form onsubmit="saveStoreSettings(event)" style="background:white;padding:24px;border-radius:16px;border:1px solid #E2E8F0;">
+                        <h4 style="font-size:16px;font-weight:700;color:var(--brand-green);margin-bottom:16px;">Website Visuals, Logo Size, Contact &amp; Social Links</h4>
+                        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));gap:20px;">
+                            <div class="form-control">
+                                <label class="form-label">Brand Logo Image (Auto Compressed)</label>
+                                <input type="file" accept="image/*" onchange="handleCompressedSingleImage(this, 'setLogoUrl', 420)" class="form-input">
+                                <input type="hidden" id="setLogoUrl">
+                            </div>
+                            <div class="form-control">
+                                <label class="form-label">Logo Width (px)</label>
+                                <input type="number" id="setLogoWidth" min="60" max="360" value="175" class="form-input" oninput="previewLogoDimensions()">
+                            </div>
+                            <div class="form-control">
+                                <label class="form-label">Logo Height (px)</label>
+                                <input type="number" id="setLogoHeight" min="32" max="120" value="50" class="form-input" oninput="previewLogoDimensions()">
+                            </div>
+                            <div class="form-control">
+                                <label class="form-label">Phone Number (কল করুন বাটন)</label>
+                                <input type="text" id="setPhoneNumber" placeholder="017XXXXXXXX" class="form-input">
+                            </div>
+                            <div class="form-control">
+                                <label class="form-label">WhatsApp Number (8801XXXXXXXXX)</label>
+                                <input type="text" id="setWhatsappNumber" placeholder="88017XXXXXXXX" class="form-input">
+                            </div>
+                            <div class="form-control">
+                                <label class="form-label">Cover Banner Image (Auto Compressed)</label>
+                                <input type="file" accept="image/*" onchange="handleCompressedSingleImage(this, 'setHeroImg', 1400)" class="form-input">
+                                <input type="hidden" id="setHeroImg">
+                            </div>
+                            <div class="form-control">
+                                <label class="form-label">Cover Title</label>
+                                <input type="text" id="setHeroTitle" class="form-input">
+                            </div>
+                            <div class="form-control">
+                                <label class="form-label">Cover Subtitle</label>
+                                <input type="text" id="setHeroSubtitle" class="form-input">
+                            </div>
+                            <div class="form-control">
+                                <label class="form-label">Shop Section Title</label>
+                                <input type="text" id="setShopTitle" class="form-input">
+                            </div>
+                            <div class="form-control">
+                                <label class="form-label">Shop Section Description</label>
+                                <input type="text" id="setShopDesc" class="form-input">
+                            </div>
+                            <div class="form-control">
+                                <label class="form-label">Facebook Page URL</label>
+                                <input type="url" id="setFbUrl" placeholder="https://facebook.com/..." class="form-input">
+                            </div>
+                            <div class="form-control">
+                                <label class="form-label">Instagram Page URL</label>
+                                <input type="url" id="setIgUrl" placeholder="https://instagram.com/..." class="form-input">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-primary" style="width:auto;padding:12px 32px;margin-top:16px;">Save All Settings</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Drawer -->
+    <div id="cartDrawer" class="drawer-bg hidden">
+        <div class="drawer-box">
+            <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #E2E8F0;padding-bottom:16px;margin-bottom:20px;">
+                <h3 style="font-size:20px;font-weight:800;color:var(--brand-green);">Your Cart</h3>
+                <button type="button" onclick="toggleCart()" style="background:none;border:none;font-size:24px;cursor:pointer;">&times;</button>
+            </div>
+            <div id="cartItemsContainer" style="flex:1;overflow-y:auto;"></div>
+            <div id="cartCheckoutBox" class="hidden" style="border-top:1px solid #E2E8F0;padding-top:16px;margin-top:16px;">
+                <div style="display:flex;justify-content:space-between;font-size:18px;font-weight:800;margin-bottom:16px;">
+                    <span>Total Amount:</span>
+                    <span id="cartTotalDisplay" style="color:var(--brand-green);">&#2547;0</span>
+                </div>
+                <form onsubmit="submitCartOrder(event)">
+                    <div class="form-control">
+                        <label class="form-label">নাম (Full Name)</label>
+                        <input type="text" id="custName" required class="form-input" placeholder="আপনার নাম লিখুন">
+                    </div>
+                    <div class="form-control">
+                        <label class="form-label">মোবাইল নম্বর (Phone)</label>
+                        <input type="tel" id="custPhone" required class="form-input" placeholder="017XXXXXXXX">
+                    </div>
+                    <div class="form-control">
+                        <label class="form-label">ঠিকানা (Address)</label>
+                        <input type="text" id="custAddress" required class="form-input" placeholder="বাসা, রোড, এলাকা, জেলা">
+                    </div>
+                    <button type="submit" class="btn-primary">অর্ডার কনফার্ম করুন (Cash on Delivery)</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let products = [];
+        let categories = ['Plates', 'Mugs', 'Bowls', 'Decor Items'];
+        let orders = [];
+        let landingPages = [];
+        let cart = JSON.parse(localStorage.getItem('nureen_cart') || '[]');
+        let activeCategory = 'All';
+        let searchQuery = '';
+        let isAdminAuthenticated = false;
+
+        let lpUploadedImages = [];
+        let activeLpData = null;
+        let activeLpSelectedVariant = '';
+        let activeLpQty = 1;
+        let activeLpGalleryIdx = 0;
+
+        let storeSettings = {
+            heroTitle: 'Crafted Ceramics for Timeless Homes',
+            heroSubtitle: 'Explore handcrafted tableware, porcelain dinner sets, glass dish collections...',
+            shopTitle: 'Our Collection',
+            shopDesc: 'Browse premium tableware and home decor pieces by category.',
+            fbLink: '',
+            instaLink: '',
+            logo: '',
+            logoWidth: 175,
+            logoHeight: 50,
+            phoneNumber: '01700000000',
+            whatsappNumber: '8801700000000',
+            heroImage: 'https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=1600&q=80'
+        };
+
+        /* Auto Image Compression */
+        function compressImageFile(file, maxWidth = 900, quality = 0.72) {
+            return new Promise((resolve) => {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const img = new Image();
+                    img.onload = function() {
+                        const scale = Math.min(1, maxWidth / img.width);
+                        const canvas = document.createElement('canvas');
+                        canvas.width = Math.max(1, Math.round(img.width * scale));
+                        canvas.height = Math.max(1, Math.round(img.height * scale));
+                        const ctx = canvas.getContext('2d');
+                        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                        const outputType = file.type === 'image/png' ? 'image/png' : 'image/jpeg';
+                        resolve(outputType === 'image/png' ? canvas.toDataURL('image/png') : canvas.toDataURL('image/jpeg', quality));
+                    };
+                    img.src = event.target.result;
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        async function handleCompressedSingleImage(input, targetInputId, maxW = 900) {
+            const file = input.files && input.files[0];
+            if (!file) return;
+            const compressed = await compressImageFile(file, maxW, 0.72);
+            document.getElementById(targetInputId).value = compressed;
+            if (targetInputId === 'prodImage') {
+                const st = document.getElementById('prodImgStatus');
+                if (st) st.textContent = 'ছবি অটো-কম্প্রেস হয়ে রেডি হয়েছে';
+            }
+            if (targetInputId === 'setLogoUrl') previewLogoDimensions();
+        }
+
+        function sanitizeSlug(val) {
+            return String(val || '').toLowerCase().replace(/[^a-z0-9-]+/g, '-').replace(/^-+|-+$/g, '');
+        }
+
+        async function initApp() {
+            sessionStorage.removeItem('nureen_admin_auth');
+            await loadAllData();
+            updateCartUI();
+            handleRoute();
+            window.addEventListener('hashchange', handleRoute);
+        }
+
+        function handleRoute() {
+            const hash = window.location.hash || '';
+            document.getElementById('publicSiteView').classList.add('hidden');
+            document.getElementById('landingPageView').classList.add('hidden');
+            document.getElementById('fullAdminSection').classList.add('hidden');
+
+            if (hash === '#admin-panel') {
+                openAdminView();
+            } else if (hash.startsWith('#lp/')) {
+                const slug = hash.replace('#lp/', '').trim();
+                openLandingPageView(slug);
+            } else {
+                document.getElementById('publicSiteView').classList.remove('hidden');
+            }
+        }
+
+        function navigateToHome(targetCat = 'All') {
+            activeCategory = targetCat;
+            searchQuery = '';
+            const mainSearch = document.getElementById('mainSearchInput');
+            if (mainSearch) mainSearch.value = '';
+            window.location.hash = '';
+            document.getElementById('landingPageView').classList.add('hidden');
+            document.getElementById('fullAdminSection').classList.add('hidden');
+            document.getElementById('publicSiteView').classList.remove('hidden');
+            renderCategoryTabs();
+            renderProducts();
+            if (targetCat !== 'All') {
+                const shopEl = document.getElementById('shop');
+                if (shopEl) shopEl.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function jumpToStoreSearch(q) {
+            searchQuery = String(q || '').trim();
+            window.location.hash = '';
+            document.getElementById('landingPageView').classList.add('hidden');
+            document.getElementById('publicSiteView').classList.remove('hidden');
+            const mainSearch = document.getElementById('mainSearchInput');
+            if (mainSearch) mainSearch.value = searchQuery;
+            renderProducts();
+            const shopEl = document.getElementById('shop');
+            if (shopEl) shopEl.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function handleSearchInput(val) {
+            searchQuery = String(val || '').trim();
+            renderProducts();
+        }
+
+        async function loadAllData() {
+            try {
+                const res = await fetch('/api/data');
+                if (res.ok) {
+                    const data = await res.json();
+                    if (data.settings) storeSettings = { ...storeSettings, ...data.settings };
+                    if (Array.isArray(data.categories) && data.categories.length > 0) categories = data.categories;
+                    if (Array.isArray(data.products)) products = data.products;
+                    if (Array.isArray(data.orders)) orders = data.orders;
+                    if (Array.isArray(data.settings?.landingPages)) landingPages = data.settings.landingPages;
+                }
+            } catch (e) {
+                console.log('Error loading data from /api/data');
+            }
+            applySettingsUI();
+            renderCategoryTabs();
+            renderAdminCategories();
+            renderProducts();
+            renderAdminProducts();
+            renderAdminLandingPages();
+            renderAdminOrders();
+        }
+
+        function renderLogoMarkup(w, h, forceEnglishOnly = false) {
+            const width = Number(w) || 175;
+            const height = Number(h) || 50;
+            if (storeSettings.logo) {
+                return `<img src="${storeSettings.logo}" alt="Nureen" class="brand-custom-logo" style="width:${width}px;height:${height}px;">`;
+            }
+            if (forceEnglishOnly) return `<h1 class="brand-title">Nureen<span>.</span></h1>`;
+            return `
+                <div style="display:flex;align-items:center;gap:12px;">
+                    <div class="brand-logo-default">N</div>
+                    <div>
+                        <h1 class="brand-title">Nureen<span>.</span></h1>
+                        <p class="brand-sub">Ceramic &amp; Tableware</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        function previewLogoDimensions() {
+            const w = document.getElementById('setLogoWidth').value || 175;
+            const h = document.getElementById('setLogoHeight').value || 50;
+            const logoUrl = document.getElementById('setLogoUrl').value || storeSettings.logo;
+            if (logoUrl) {
+                const html = `<img src="${logoUrl}" alt="Nureen" class="brand-custom-logo" style="width:${w}px;height:${h}px;">`;
+                document.getElementById('brandLogoContainer').innerHTML = html;
+                document.getElementById('lpBrandLogoContainer').innerHTML = html;
+            }
+        }
+
+        function applySettingsUI() {
+            document.getElementById('brandLogoContainer').innerHTML = renderLogoMarkup(storeSettings.logoWidth, storeSettings.logoHeight, false);
+            document.getElementById('lpBrandLogoContainer').innerHTML = renderLogoMarkup(storeSettings.logoWidth, storeSettings.logoHeight, true);
+
+            if (storeSettings.heroImage) document.getElementById('heroImageDisplay').src = storeSettings.heroImage;
+            if (storeSettings.heroTitle) document.getElementById('heroTitleDisplay').textContent = storeSettings.heroTitle;
+            if (storeSettings.heroSubtitle) document.getElementById('heroSubtitleDisplay').textContent = storeSettings.heroSubtitle;
+            if (storeSettings.shopTitle) document.getElementById('shopTitleDisplay').textContent = storeSettings.shopTitle;
+            if (storeSettings.shopDesc) document.getElementById('shopDescDisplay').textContent = storeSettings.shopDesc;
+
+            const phoneClean = (storeSettings.phoneNumber || '').trim();
+            const waClean = (storeSettings.whatsappNumber || '').replace(/\D/g, '');
+            const headerCallBtn = document.getElementById('headerCallBtn');
+            if (phoneClean) {
+                headerCallBtn.href = `tel:${phoneClean}`;
+                headerCallBtn.classList.remove('hidden');
+            } else {
+                headerCallBtn.classList.add('hidden');
+            }
+
+            const socialArea = document.getElementById('footerSocialArea');
+            let linksHtml = '';
+            if (phoneClean) linksHtml += `<a href="tel:${phoneClean}" title="কল করুন" class="social-icon"><i class="fas fa-phone-alt"></i></a>`;
+            if (waClean) linksHtml += `<a href="https://wa.me/${waClean}" target="_blank" title="WhatsApp" class="social-icon"><i class="fab fa-whatsapp"></i></a>`;
+            if (storeSettings.fbLink) linksHtml += `<a href="${storeSettings.fbLink}" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>`;
+            if (storeSettings.instaLink) linksHtml += `<a href="${storeSettings.instaLink}" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>`;
+            socialArea.innerHTML = linksHtml;
+
+            document.getElementById('setLogoUrl').value = storeSettings.logo || '';
+            document.getElementById('setLogoWidth').value = storeSettings.logoWidth || 175;
+            document.getElementById('setLogoHeight').value = storeSettings.logoHeight || 50;
+            document.getElementById('setPhoneNumber').value = storeSettings.phoneNumber || '';
+            document.getElementById('setWhatsappNumber').value = storeSettings.whatsappNumber || '';
+            document.getElementById('setHeroImg').value = storeSettings.heroImage || '';
+            document.getElementById('setHeroTitle').value = storeSettings.heroTitle || '';
+            document.getElementById('setHeroSubtitle').value = storeSettings.heroSubtitle || '';
+            document.getElementById('setShopTitle').value = storeSettings.shopTitle || '';
+            document.getElementById('setShopDesc').value = storeSettings.shopDesc || '';
+            document.getElementById('setFbUrl').value = storeSettings.fbLink || '';
+            document.getElementById('setIgUrl').value = storeSettings.instaLink || '';
+        }
+
+        function renderCategoryTabs() {
+            const container = document.getElementById('categoryFilters');
+            const topMainNav = document.getElementById('topCategoryNav');
+            const topLpNav = document.getElementById('lpTopCategoryNav');
+            const allCats = ['All', ...categories];
+
+            container.innerHTML = allCats.map(cat => `
+                <button type="button" onclick="selectCategory('${cat.replace(/'/g, "\\'")}')" class="cat-tab ${activeCategory === cat ? 'active' : ''}">${cat}</button>
+            `).join('');
+
+            const topHtml = `
+                <button type="button" onclick="navigateToHome('All')" class="top-nav-btn ${activeCategory === 'All' ? 'active' : ''}"><i class="fas fa-home"></i> Home</button>
+                ${allCats.map(cat => `
+                    <button type="button" onclick="navigateToHome('${cat.replace(/'/g, "\\'")}')" class="top-nav-btn ${activeCategory === cat && cat !== 'All' ? 'active' : ''}">${cat}</button>
+                `).join('')}
+            `;
+            if (topMainNav) topMainNav.innerHTML = topHtml;
+
+            if (topLpNav) {
+                topLpNav.innerHTML = `
+                    <button type="button" onclick="navigateToHome('All')" class="top-nav-btn"><i class="fas fa-home"></i> Home</button>
+                    ${allCats.map(cat => `
+                        <button type="button" onclick="navigateToHome('${cat.replace(/'/g, "\\'")}')" class="top-nav-btn">${cat}</button>
+                    `).join('')}
+                `;
+            }
+        }
+
+        function selectCategory(cat) {
+            activeCategory = cat;
+            renderCategoryTabs();
+            renderProducts();
+        }
+
+        function formatUnitText(item) {
+            const qty = Math.max(1, Number(item.unitQty || 1));
+            const label = item.unitLabel || (qty > 1 ? 'pcs' : 'pc');
+            if (label === 'Set') return qty > 1 ? `${qty} Sets` : '1 Set';
+            return `${qty} ${label}`;
+        }
+
+        function getEffectiveProductPrice(p) {
+            const realP = Number(p.price || 0);
+            const offerP = Number(p.offerPrice || 0);
+            return (offerP > 0 && offerP < realP) ? offerP : realP;
+        }
+
+        function formatProductPrice(p) {
+            const realP = Number(p.price || 0);
+            const offerP = Number(p.offerPrice || 0);
+            const unitTxt = formatUnitText(p);
+            if (offerP > 0 && offerP < realP) {
+                return `<span class="price-stack"><span class="old-price-cut">&#2547;${realP}</span><span class="now-price-big">&#2547;${offerP}</span><span class="unit-tag-sm">/ ${unitTxt}</span></span>`;
+            }
+            return `<span class="price-stack"><span class="now-price-big">&#2547;${realP}</span><span class="unit-tag-sm">/ ${unitTxt}</span></span>`;
+        }
+
+        function createProductCardHTML(p) {
+            const id = p._id || p.id;
+            const img = p.image || 'https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=600&q=80';
+            const hasDetails = Boolean(p.details && String(p.details).trim().length > 0);
+
+            return `
+                <div class="product-card">
+                    <div class="product-img-box">
+                        <img src="${img}" alt="${p.name}" class="product-img" loading="lazy">
+                    </div>
+                    <div class="product-details">
+                        <div>
+                            <span class="product-cat-tag">${p.category || 'Ceramic'}</span>
+                            <h4 class="product-title">${p.name}</h4>
+                        </div>
+                        <div class="product-footer">
+                            <div>${formatProductPrice(p)}</div>
+                            <div class="card-actions">
+                                <button type="button" class="details-btn" ${hasDetails ? `onclick="openProductDetails('${id}')"` : 'disabled title="No details added"'}>Details</button>
+                                <button type="button" id="addBtn_${id}" onclick="handleAddToCartClick('${id}', this)" class="add-btn">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function openProductDetails(id) {
+            const prod = products.find(p => String(p._id) === String(id) || String(p.id) === String(id));
+            if (!prod || !prod.details || !String(prod.details).trim()) return;
+            document.getElementById('detailModalTitle').textContent = prod.name;
+            document.getElementById('detailModalImg').src = prod.image || 'https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=600&q=80';
+            document.getElementById('detailModalPrice').innerHTML = formatProductPrice(prod);
+            document.getElementById('detailModalText').textContent = String(prod.details).trim();
+            document.getElementById('productDetailsModal').classList.remove('hidden');
+        }
+
+        function closeProductDetails() {
+            document.getElementById('productDetailsModal').classList.add('hidden');
+        }
+
+        function renderProducts() {
+            const featuredGrid = document.getElementById('featuredGrid');
+            const productGrid = document.getElementById('productGrid');
+            const featuredSection = document.getElementById('featuredMixSection');
+
+            if (!products || products.length === 0) {
+                featuredSection.classList.add('hidden');
+                productGrid.innerHTML = '<p style="color:#4B5563;grid-column:1/-1;text-align:center;padding:40px;">No products available right now.</p>';
+                return;
+            }
+
+            if (searchQuery) {
+                featuredSection.classList.add('hidden');
+            } else {
+                featuredSection.classList.remove('hidden');
+                const featuredItems = products.filter(p => p.featured).slice(0, 3);
+                const mixItems = featuredItems.length > 0 ? featuredItems : products.slice(0, 3);
+                featuredGrid.innerHTML = mixItems.map(createProductCardHTML).join('');
+            }
+
+            let filtered = activeCategory === 'All' ? products : products.filter(p => p.category === activeCategory);
+            if (searchQuery) {
+                const qLower = searchQuery.toLowerCase();
+                filtered = filtered.filter(p =>
+                    String(p.name || '').toLowerCase().includes(qLower) ||
+                    String(p.category || '').toLowerCase().includes(qLower)
+                );
+            }
+
+            productGrid.innerHTML = filtered.length
+                ? filtered.map(createProductCardHTML).join('')
+                : '<p style="color:#4B5563;grid-column:1/-1;text-align:center;padding:30px;">কোনো প্রোডাক্ট পাওয়া যায়নি।</p>';
+        }
+
+        /* Landing Page View (#lp/slug) */
+        function openLandingPageView(slug) {
+            const lp = landingPages.find(item => item.slug === slug) || landingPages[0];
+            if (!lp) { navigateToHome(); return; }
+            activeLpData = lp;
+            activeLpGalleryIdx = 0;
+            activeLpQty = 1;
+            activeLpSelectedVariant = (lp.variants && lp.variants.length > 0) ? lp.variants[0] : 'স্ট্যান্ডার্ড প্যাক';
+            document.getElementById('landingPageView').classList.remove('hidden');
+            renderLandingPageContent();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function getLpNowPrice(lp) {
+            const realP = Number(lp.price || 0);
+            const offerP = Number(lp.offerPrice || 0);
+            return (offerP > 0 && offerP < realP) ? offerP : realP;
+        }
+
+        function triggerLpMainImageAnim() {
+            const imgEl = document.getElementById('lpMainImg');
+            if (!imgEl) return;
+            imgEl.classList.remove('lp-img-animate');
+            void imgEl.offsetWidth;
+            imgEl.classList.add('lp-img-animate');
+        }
+
+        function renderLandingPageContent() {
+            const lp = activeLpData;
+            if (!lp) return;
+            const imgs = (lp.images && lp.images.length > 0) ? lp.images : ['https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=1000&q=80'];
+            const currentImg = imgs[activeLpGalleryIdx] || imgs[0];
+            const variants = lp.variants || [];
+            const phoneClean = (storeSettings.phoneNumber || '01700000000').trim();
+            const waClean = (storeSettings.whatsappNumber || phoneClean.replace(/\D/g, '') || '8801700000000');
+            const realP = Number(lp.price || 0);
+            const offerP = Number(lp.offerPrice || 0);
+            const nowP = getLpNowPrice(lp);
+            const hasDiscount = offerP > 0 && offerP < realP;
+
+            document.getElementById('lpContentArea').innerHTML = `
+                <div class="lp-card">
+                    <span class="lp-badge">ক্যাশ অন ডেলিভারি &bull; Nureen</span>
+                    <h1 class="lp-title">${lp.title}</h1>
+
+                    <!-- Price right below Product Title (Same Size for Old Cut Price & Now Price) -->
+                    <div class="lp-price-box">
+                        ${hasDiscount ? `<span class="lp-old-cut">&#2547;${realP}</span>` : ''}
+                        <span class="lp-now-price">&#2547;${nowP}</span>
+                    </div>
+
+                    <!-- Responsive Animated Main Gallery Image + Thumbnails Below -->
+                    <img id="lpMainImg" src="${currentImg}" alt="${lp.title}" onclick="triggerLpMainImageAnim()" class="lp-gallery-main lp-img-animate">
+                    ${imgs.length > 1 ? `<div class="lp-thumbs">${imgs.map((src, idx) => `<img src="${src}" onclick="selectLpGallery(${idx})" class="lp-thumb ${idx === activeLpGalleryIdx ? 'active' : ''}" loading="lazy">`).join('')}</div>` : ''}
+
+                    <!-- Button #1 Right Below Photo in Bangla -->
+                    <div style="margin-top:14px;">
+                        <button type="button" onclick="document.getElementById('lpOrderFormSection').scrollIntoView({behavior:'smooth'})" class="btn-order-now" style="width:100%;">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span>এখনি অর্ডার করুন</span>
+                        </button>
+                    </div>
+
+                    ${lp.description ? `<p style="margin-top:16px;font-size:15px;line-height:1.65;color:#1F2937;">${lp.description}</p>` : ''}
+
+                    ${variants.length > 0 ? `<div style="margin-top:16px;"><span class="option-label">কালার / প্যাক অপশন সিলেক্ট করুন:</span><div class="variant-grid">${variants.map(v => `<button type="button" onclick="selectLpVariant('${v.replace(/'/g, "\\'")}')" class="variant-chip ${activeLpSelectedVariant === v ? 'active' : ''}">${v}</button>`).join('')}</div></div>` : ''}
+
+                    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:10px;">
+                        <span class="option-label" style="margin:0;">পরিমাণ:</span>
+                        <div class="qty-box">
+                            <button type="button" onclick="changeLpQty(-1)">-</button>
+                            <span>${activeLpQty}</span>
+                            <button type="button" onclick="changeLpQty(1)">+</button>
+                        </div>
+                    </div>
+
+                    <!-- Button #2 Where Option Controls Are -->
+                    <div class="lp-cta-group">
+                        <button type="button" onclick="document.getElementById('lpOrderFormSection').scrollIntoView({behavior:'smooth'})" class="btn-order-now">
+                            <i class="fas fa-bolt"></i>
+                            <span>এখনি অর্ডার করুন</span>
+                        </button>
+                        <button type="button" onclick="addLpToCart()" class="btn-add-cart-bn">
+                            <i class="fas fa-cart-plus"></i>
+                            <span>কার্টে যোগ করুন</span>
+                        </button>
+                    </div>
+
+                    <div class="contact-bar-bn">
+                        <a href="tel:${phoneClean}" class="btn-call-bn"><i class="fas fa-phone-alt"></i><span>কল করুন</span></a>
+                        <a href="https://wa.me/${waClean}" target="_blank" class="btn-wa-bn"><i class="fab fa-whatsapp"></i><span>হোয়াটসঅ্যাপ</span></a>
+                    </div>
+                </div>
+
+                <!-- Cash on Delivery Order Form with Bangla Confirm Button -->
+                <div id="lpOrderFormSection" class="lp-card">
+                    <h2 style="font-size:20px;font-weight:900;color:var(--brand-green);margin-bottom:14px;">ক্যাশ অন ডেলিভারিতে অর্ডার করুন</h2>
+                    <form onsubmit="submitLandingPageOrder(event)">
+                        <div class="form-control"><label class="form-label">আপনার নাম *</label><input type="text" id="lpCustName" required class="form-input" placeholder="আপনার পূর্ণ নাম লিখুন"></div>
+                        <div class="form-control"><label class="form-label">মোবাইল নম্বর *</label><input type="tel" id="lpCustPhone" required class="form-input" placeholder="017XXXXXXXX"></div>
+                        <div class="form-control"><label class="form-label">সম্পূর্ণ ঠিকানা *</label><input type="text" id="lpCustAddress" required class="form-input" placeholder="বাসা, রোড, এলাকা, জেলা"></div>
+                        <div class="form-control">
+                            <label class="form-label">ডেলিভারি এরিয়া *</label>
+                            <select id="lpDeliveryZone" onchange="updateLpSummaryCalc()" class="form-select">
+                                <option value="inside">ঢাকার ভেতর (&#2547;${Number(lp.deliveryInside || 0)})</option>
+                                <option value="outside">ঢাকার বাইরে (&#2547;${Number(lp.deliveryOutside || 0)})</option>
+                            </select>
+                        </div>
+                        <div class="cod-box" style="margin-bottom:16px;">
+                            <div class="summary-line"><span>সিলেক্টেড অপশন:</span><strong>${activeLpSelectedVariant}</strong></div>
+                            <div class="summary-line"><span>পরিমাণ:</span><strong id="lpSummaryQty">${activeLpQty}</strong></div>
+                            <div class="summary-line"><span>প্রোডাক্ট মূল্য:</span><strong id="lpSummarySubtotal">&#2547;${nowP * activeLpQty}</strong></div>
+                            <div class="summary-line"><span>ডেলিভারি চার্জ:</span><strong id="lpSummaryDelivery">&#2547;${Number(lp.deliveryInside || 0)}</strong></div>
+                            <div class="summary-total"><span>সর্বমোট:</span><span id="lpSummaryGrandTotal">&#2547;${(nowP * activeLpQty) + Number(lp.deliveryInside || 0)}</span></div>
+                        </div>
+                        <button type="submit" id="lpSubmitOrderBtn" class="btn-primary" style="padding:15px;font-size:16px;">
+                            অর্ডার কনফার্ম করুন
+                        </button>
+                    </form>
+                </div>
+            `;
+            updateLpSummaryCalc();
+        }
+
+        function selectLpGallery(idx) {
+            activeLpGalleryIdx = idx;
+            renderLandingPageContent();
+        }
+        function selectLpVariant(v) { activeLpSelectedVariant = v; renderLandingPageContent(); }
+        function changeLpQty(d) { activeLpQty = Math.max(1, activeLpQty + d); renderLandingPageContent(); }
+
+        function updateLpSummaryCalc() {
+            if (!activeLpData) return;
+            const zone = document.getElementById('lpDeliveryZone')?.value || 'inside';
+            const delivery = zone === 'outside' ? Number(activeLpData.deliveryOutside || 0) : Number(activeLpData.deliveryInside || 0);
+            const unitPrice = getLpNowPrice(activeLpData);
+            const subtotal = unitPrice * activeLpQty;
+            if (document.getElementById('lpSummaryQty')) document.getElementById('lpSummaryQty').textContent = `${activeLpQty}`;
+            if (document.getElementById('lpSummarySubtotal')) document.getElementById('lpSummarySubtotal').textContent = `৳${subtotal}`;
+            if (document.getElementById('lpSummaryDelivery')) document.getElementById('lpSummaryDelivery').textContent = `৳${delivery}`;
+            if (document.getElementById('lpSummaryGrandTotal')) document.getElementById('lpSummaryGrandTotal').textContent = `৳${subtotal + delivery}`;
+        }
+
+        function addLpToCart() {
+            if (!activeLpData) return;
+            const imgs = (activeLpData.images && activeLpData.images.length > 0) ? activeLpData.images : [''];
+            cart.push({
+                id: activeLpData.id + '_' + activeLpSelectedVariant,
+                name: `${activeLpData.title} [${activeLpSelectedVariant}]`,
+                price: getLpNowPrice(activeLpData),
+                unitQty: 1,
+                unitLabel: 'pc',
+                image: imgs[0],
+                qty: activeLpQty
+            });
+            saveCart();
+            updateCartUI();
+            toggleCart(true);
+        }
+
+        async function submitLandingPageOrder(e) {
+            e.preventDefault();
+            if (!activeLpData) return;
+            const btn = document.getElementById('lpSubmitOrderBtn');
+            if (btn) { btn.disabled = true; btn.textContent = 'অর্ডার প্রসেস হচ্ছে...'; }
+
+            const zone = document.getElementById('lpDeliveryZone').value;
+            const deliveryFee = zone === 'outside' ? Number(activeLpData.deliveryOutside || 0) : Number(activeLpData.deliveryInside || 0);
+            const unitPrice = getLpNowPrice(activeLpData);
+            const total = (unitPrice * activeLpQty) + deliveryFee;
+            const payload = {
+                id: 'ord_' + Date.now(),
+                source: 'landing_page',
+                date: new Date().toLocaleString(),
+                name: document.getElementById('lpCustName').value.trim(),
+                phone: document.getElementById('lpCustPhone').value.trim(),
+                address: `${document.getElementById('lpCustAddress').value.trim()} (${zone === 'outside' ? 'ঢাকার বাইরে' : 'ঢাকার ভেতর'})`,
+                items: [{ name: `${activeLpData.title} - ${activeLpSelectedVariant}`, price: unitPrice, qty: activeLpQty, displayQty: `${activeLpQty} pc` }],
+                total
+            };
+            try {
+                const res = await fetch('/api/orders', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+                if (res.ok) {
+                    alert('ধন্যবাদ! আপনার অর্ডার কনফার্ম হয়েছে।');
+                    e.target.reset();
+                    activeLpQty = 1;
+                    updateLpSummaryCalc();
+                    await loadAllData();
+                }
+            } finally {
+                if (btn) { btn.disabled = false; btn.textContent = 'অর্ডার কনফার্ম করুন'; }
+            }
+        }
+
+        /* Add to Cart with Unclickable Feedback + Unit Qty Support */
+        function handleAddToCartClick(id, btnEl) {
+            if (btnEl && btnEl.disabled) return;
+            if (btnEl) {
+                btnEl.disabled = true;
+                const orig = btnEl.textContent;
+                btnEl.textContent = 'Added ✓';
+                setTimeout(() => { btnEl.disabled = false; btnEl.textContent = orig; }, 900);
+            }
+            const prod = products.find(p => String(p._id) === String(id) || String(p.id) === String(id));
+            if (!prod) return;
+            const unitQty = Math.max(1, Number(prod.unitQty || 1));
+            const unitLabel = prod.unitLabel || (unitQty > 1 ? 'pcs' : 'pc');
+            const effectivePrice = getEffectiveProductPrice(prod);
+            const keyId = String(prod.id || prod._id);
+            const existing = cart.find(item => String(item.id) === keyId);
+            if (existing) {
+                existing.qty += 1;
+                existing.unitQty = unitQty;
+                existing.unitLabel = unitLabel;
+                existing.price = effectivePrice;
+            } else {
+                cart.push({ id: keyId, name: prod.name, price: effectivePrice, unitQty, unitLabel, image: prod.image || '', qty: 1 });
+            }
+            saveCart();
+            updateCartUI();
+            toggleCart(true);
+        }
+
+        function updateCartQty(id, delta) {
+            const idx = cart.findIndex(i => String(i.id) === String(id));
+            if (idx === -1) return;
+            const nextQty = cart[idx].qty + delta;
+            if (nextQty <= 0) cart.splice(idx, 1);
+            else cart[idx].qty = nextQty;
+            saveCart();
+            updateCartUI();
+        }
+
+        function saveCart() { localStorage.setItem('nureen_cart', JSON.stringify(cart)); }
+
+        function getCartItemTotalPiecesText(item) {
+            const packCount = Math.max(1, Number(item.qty || 1));
+            const uQty = Math.max(1, Number(item.unitQty || 1));
+            const uLabel = item.unitLabel || (uQty > 1 ? 'pcs' : 'pc');
+            const totalUnits = packCount * uQty;
+            if (uLabel === 'Set') return totalUnits > 1 ? `${totalUnits} Sets` : '1 Set';
+            return `${totalUnits} ${uLabel}`;
+        }
+
+        function updateCartUI() {
+            const badge = document.getElementById('cartBadge');
+            const lpBadge = document.getElementById('lpCartBadge');
+            const container = document.getElementById('cartItemsContainer');
+            const checkoutBox = document.getElementById('cartCheckoutBox');
+            const totalDisplay = document.getElementById('cartTotalDisplay');
+
+            const totalCount = cart.reduce((sum, i) => sum + (i.qty * Math.max(1, Number(i.unitQty || 1))), 0);
+            const totalPrice = cart.reduce((sum, i) => sum + (Number(i.price) * Number(i.qty)), 0);
+            if (badge) badge.textContent = totalCount;
+            if (lpBadge) lpBadge.textContent = totalCount;
+
+            if (cart.length === 0) {
+                container.innerHTML = '<p style="text-align:center;color:#4B5563;margin-top:60px;">Your cart is currently empty.</p>';
+                checkoutBox.classList.add('hidden');
+                return;
+            }
+            checkoutBox.classList.remove('hidden');
+            totalDisplay.textContent = `\u09F3${totalPrice}`;
+            container.innerHTML = cart.map(item => `
+                <div class="cart-row">
+                    <img src="${item.image || 'https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=200&q=80'}" class="cart-img">
+                    <div style="flex:1;">
+                        <h5 style="font-size:14px;font-weight:700;">${item.name}</h5>
+                        <p style="font-size:12px;color:var(--brand-green);font-weight:700;">Qty: ${getCartItemTotalPiecesText(item)} &bull; &#2547;${Number(item.price) * Number(item.qty)}</p>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:8px;">
+                        <button type="button" onclick="updateCartQty('${item.id}', -1)" style="width:28px;height:28px;border:1px solid #CBD5E0;background:white;border-radius:6px;cursor:pointer;">-</button>
+                        <span style="font-weight:700;font-size:13px;">${getCartItemTotalPiecesText(item)}</span>
+                        <button type="button" onclick="updateCartQty('${item.id}', 1)" style="width:28px;height:28px;border:1px solid #CBD5E0;background:white;border-radius:6px;cursor:pointer;">+</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function toggleCart(forceOpen) {
+            const drawer = document.getElementById('cartDrawer');
+            if (forceOpen === true) drawer.classList.remove('hidden');
+            else drawer.classList.toggle('hidden');
+        }
+
+        async function submitCartOrder(e) {
+            e.preventDefault();
+            const total = cart.reduce((sum, i) => sum + (Number(i.price) * Number(i.qty)), 0);
+            const payload = {
+                id: 'ord_' + Date.now(),
+                source: 'website_cart',
+                date: new Date().toLocaleString(),
+                name: document.getElementById('custName').value,
+                phone: document.getElementById('custPhone').value,
+                address: document.getElementById('custAddress').value,
+                items: cart.map(i => ({ ...i, displayQty: getCartItemTotalPiecesText(i) })),
+                total
+            };
+            const res = await fetch('/api/orders', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+            if (res.ok) {
+                alert('ধন্যবাদ! আপনার অর্ডার কনফার্ম হয়েছে।');
+                cart = [];
+                saveCart();
+                updateCartUI();
+                toggleCart();
+                await loadAllData();
+            }
+        }
+
+        /* Admin Logic */
+        function openAdminView() {
+            document.getElementById('publicSiteView').classList.add('hidden');
+            document.getElementById('landingPageView').classList.add('hidden');
+            document.getElementById('fullAdminSection').classList.remove('hidden');
+            document.getElementById('adminLoginView').classList.remove('hidden');
+            document.getElementById('adminDashboardView').classList.add('hidden');
+        }
+
+        function exitAdmin() { isAdminAuthenticated = false; navigateToHome(); }
+
+        async function handleAdminLogin(e) {
+            e.preventDefault();
+            const btn = document.getElementById('adminLoginBtn');
+            const entered = document.getElementById('adminPasswordInput').value;
+            btn.disabled = true;
+            btn.textContent = 'Checking...';
+            try {
+                const res = await fetch('/api/admin/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ password: entered })
+                });
+                if (res.ok) {
+                    isAdminAuthenticated = true;
+                    document.getElementById('adminPasswordInput').value = '';
+                    document.getElementById('adminLoginView').classList.add('hidden');
+                    document.getElementById('adminDashboardView').classList.remove('hidden');
+                    renderAdminOrders();
+                } else {
+                    alert('Incorrect password!');
+                }
+            } finally {
+                btn.disabled = false;
+                btn.textContent = 'Unlock Dashboard';
+            }
+        }
+
+        function switchAdminTab(tab) {
+            ['products', 'landingPages', 'orders', 'settings'].forEach(t => {
+                const panel = document.getElementById(`admin${t.charAt(0).toUpperCase() + t.slice(1)}Tab`);
+                if (panel) panel.classList.toggle('hidden', t !== tab);
+                const btn = document.getElementById(`tabBtn${t.charAt(0).toUpperCase() + t.slice(1)}`);
+                if (btn) btn.style.color = t === tab ? 'var(--brand-green)' : '#718096';
+            });
+        }
+
+        async function handleLpImagesUpload(input) {
+            for (const file of Array.from(input.files || [])) {
+                lpUploadedImages.push(await compressImageFile(file, 950, 0.72));
+            }
+            renderLpAdminThumbs();
+        }
+
+        function renderLpAdminThumbs() {
+            document.getElementById('lpUploadedThumbs').innerHTML = lpUploadedImages.map((img, i) => `
+                <div style="position:relative;">
+                    <img src="${img}" style="width:56px;height:56px;object-fit:cover;border-radius:8px;">
+                    <button type="button" onclick="lpUploadedImages.splice(${i},1);renderLpAdminThumbs();" style="position:absolute;top:-6px;right:-6px;background:#DC2626;color:#fff;border:none;border-radius:50%;width:18px;height:18px;font-size:11px;cursor:pointer;">&times;</button>
+                </div>
+            `).join('');
+        }
+
+        function appendQuickColorOption(label) {
+            const ta = document.getElementById('lpVariantsText');
+            const lines = ta.value.split('\n').map(s => s.trim()).filter(Boolean);
+            if (!lines.includes(label)) { lines.push(label); ta.value = lines.join('\n'); }
+        }
+
+        function renderAdminCategories() {
+            document.getElementById('adminCategoryChipList').innerHTML = categories.map(c => `<span class="cat-chip">${c} <button type="button" onclick="deleteCategory('${c.replace(/'/g, "\\'")}')">&times;</button></span>`).join('');
+            document.getElementById('prodCategorySelect').innerHTML = categories.map(c => `<option value="${c}">${c}</option>`).join('');
+        }
+
+        async function addNewCategory() {
+            const input = document.getElementById('newCatInput');
+            if (!input.value.trim()) return;
+            await fetch('/api/categories', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name: input.value.trim() }) });
+            input.value = '';
+            await loadAllData();
+        }
+
+        async function deleteCategory(name) {
+            await fetch(`/api/categories/${encodeURIComponent(name)}`, { method: 'DELETE' });
+            await loadAllData();
+        }
+
+        async function saveProduct(e) {
+            e.preventDefault();
+            const editId = document.getElementById('editProductId').value;
+            const unitQty = Math.max(1, Number(document.getElementById('prodUnitQty').value || 1));
+            const unitLabel = document.getElementById('prodUnitLabel').value || (unitQty > 1 ? 'pcs' : 'pc');
+            const offerPriceVal = Number(document.getElementById('prodOfferPrice').value || 0);
+            const payload = {
+                id: editId || ('p_' + Date.now()),
+                name: document.getElementById('prodName').value.trim(),
+                category: document.getElementById('prodCategorySelect').value,
+                price: Number(document.getElementById('prodPrice').value),
+                offerPrice: offerPriceVal > 0 ? offerPriceVal : 0,
+                unitQty,
+                unitLabel,
+                details: document.getElementById('prodDetails').value.trim(),
+                featured: false,
+                image: document.getElementById('prodImage').value
+            };
+            const res = await fetch('/api/products', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+            if (res.ok) { resetProductForm(); await loadAllData(); }
+        }
+
+        function editProduct(id) {
+            const p = products.find(item => String(item._id) === String(id) || String(item.id) === String(id));
+            if (!p) return;
+            document.getElementById('editProductId').value = p.id || p._id;
+            document.getElementById('prodName').value = p.name;
+            document.getElementById('prodCategorySelect').value = p.category;
+            document.getElementById('prodPrice').value = p.price;
+            document.getElementById('prodOfferPrice').value = p.offerPrice || '';
+            document.getElementById('prodUnitQty').value = p.unitQty || 1;
+            document.getElementById('prodUnitLabel').value = p.unitLabel || 'pc';
+            document.getElementById('prodDetails').value = p.details || '';
+            document.getElementById('prodImage').value = p.image || '';
+            document.getElementById('productFormTitle').textContent = 'Edit Product';
+            document.getElementById('btnSaveProd').textContent = 'Update Product';
+            document.getElementById('btnCancelEdit').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function resetProductForm() {
+            document.getElementById('editProductId').value = '';
+            document.getElementById('prodName').value = '';
+            document.getElementById('prodPrice').value = '';
+            document.getElementById('prodOfferPrice').value = '';
+            document.getElementById('prodUnitQty').value = 6;
+            document.getElementById('prodUnitLabel').value = 'pcs';
+            document.getElementById('prodDetails').value = '';
+            document.getElementById('prodImage').value = '';
+            document.getElementById('productFormTitle').textContent = 'Add New Product';
+            document.getElementById('btnSaveProd').textContent = 'Save Product';
+            document.getElementById('btnCancelEdit').classList.add('hidden');
+        }
+
+        async function deleteProduct(id, mongoId) {
+            if (!confirm('Delete this product?')) return;
+            const targetId = mongoId || id;
+            await fetch(`/api/products/${encodeURIComponent(targetId)}`, { method: 'DELETE' });
+            await loadAllData();
+        }
+
+        function renderAdminProducts() {
+            document.getElementById('adminProductList').innerHTML = products.map(p => `
+                <div style="display:flex;align-items:center;justify-content:space-between;background:white;padding:16px;border-radius:12px;border:1px solid #E2E8F0;margin-bottom:12px;gap:12px;flex-wrap:wrap;">
+                    <div style="display:flex;align-items:center;gap:14px;">
+                        <img src="${p.image || 'https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=150&q=80'}" style="width:52px;height:52px;object-fit:cover;border-radius:8px;">
+                        <div>
+                            <h5 style="font-weight:700;font-size:15px;">${p.name}</h5>
+                            <p style="font-size:12px;color:#4B5563;">${p.category} &bull; ${formatProductPrice(p)}</p>
+                        </div>
+                    </div>
+                    <div style="display:flex;gap:8px;">
+                        <button type="button" onclick="editProduct('${p.id || p._id}')" style="background:#EDF2F7;border:none;padding:8px 14px;border-radius:8px;font-weight:600;cursor:pointer;">Edit</button>
+                        <button type="button" onclick="deleteProduct('${p.id || ''}', '${p._id || ''}')" style="background:#FED7D7;color:#9B2C2C;border:none;padding:8px 14px;border-radius:8px;font-weight:600;cursor:pointer;">Delete</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        async function saveLandingPage(e) {
+            e.preventDefault();
+            const editId = document.getElementById('lpEditId').value;
+            const slug = sanitizeSlug(document.getElementById('lpSlug').value || document.getElementById('lpTitle').value) || ('lp-' + Date.now());
+            const offerPriceVal = Number(document.getElementById('lpOfferPrice').value || 0);
+            const variants = document.getElementById('lpVariantsText').value.split('\n').map(s => s.trim()).filter(Boolean);
+            const pageObj = {
+                id: editId || ('lp_' + Date.now()),
+                slug,
+                title: document.getElementById('lpTitle').value.trim(),
+                price: Number(document.getElementById('lpPrice').value),
+                offerPrice: offerPriceVal > 0 ? offerPriceVal : 0,
+                deliveryInside: Number(document.getElementById('lpDeliveryInside').value || 0),
+                deliveryOutside: Number(document.getElementById('lpDeliveryOutside').value || 0),
+                description: document.getElementById('lpDescription').value.trim(),
+                images: lpUploadedImages.length > 0 ? [...lpUploadedImages] : ['https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=1000&q=80'],
+                variants
+            };
+            const idx = landingPages.findIndex(x => x.id === pageObj.id);
+            if (idx >= 0) landingPages[idx] = pageObj;
+            else landingPages.push(pageObj);
+            if (await persistSettingsPayload({ landingPages })) {
+                alert('Landing Page Saved! Link: #lp/' + slug);
+                resetLpForm();
+                renderAdminLandingPages();
+            }
+        }
+
+        function editLandingPage(id) {
+            const lp = landingPages.find(x => x.id === id);
+            if (!lp) return;
+            document.getElementById('lpEditId').value = lp.id;
+            document.getElementById('lpTitle').value = lp.title || '';
+            document.getElementById('lpSlug').value = lp.slug || '';
+            document.getElementById('lpSlugPreview').textContent = lp.slug || '';
+            document.getElementById('lpPrice').value = lp.price || 0;
+            document.getElementById('lpOfferPrice').value = lp.offerPrice || '';
+            document.getElementById('lpDeliveryInside').value = lp.deliveryInside ?? 70;
+            document.getElementById('lpDeliveryOutside').value = lp.deliveryOutside ?? 130;
+            document.getElementById('lpDescription').value = lp.description || '';
+            document.getElementById('lpVariantsText').value = (lp.variants || []).join('\n');
+            lpUploadedImages = Array.isArray(lp.images) ? [...lp.images] : [];
+            renderLpAdminThumbs();
+        }
+
+        async function deleteLandingPage(id) {
+            if (!confirm('Delete this landing page?')) return;
+            landingPages = landingPages.filter(x => x.id !== id);
+            await persistSettingsPayload({ landingPages });
+            renderAdminLandingPages();
+        }
+
+        function resetLpForm() {
+            document.getElementById('lpEditId').value = '';
+            document.getElementById('lpTitle').value = '';
+            document.getElementById('lpSlug').value = '';
+            document.getElementById('lpSlugPreview').textContent = 'your-slug';
+            document.getElementById('lpPrice').value = '';
+            document.getElementById('lpOfferPrice').value = '';
+            document.getElementById('lpDeliveryInside').value = 70;
+            document.getElementById('lpDeliveryOutside').value = 130;
+            document.getElementById('lpDescription').value = '';
+            document.getElementById('lpVariantsText').value = '';
+            lpUploadedImages = [];
+            renderLpAdminThumbs();
+        }
+
+        function renderAdminLandingPages() {
+            const baseOrigin = window.location.origin || '';
+            document.getElementById('adminLpList').innerHTML = landingPages.length ? landingPages.map(lp => `
+                <div style="background:white;padding:16px;border-radius:12px;border:1px solid #E2E8F0;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;">
+                    <div>
+                        <h5 style="font-weight:800;color:var(--brand-green);">${lp.title}</h5>
+                        <p style="font-size:12px;color:#374151;">Link: <a href="#lp/${lp.slug}" style="color:var(--brand-green);font-weight:700;">${baseOrigin}/#lp/${lp.slug}</a></p>
+                    </div>
+                    <div style="display:flex;gap:8px;">
+                        <a href="#lp/${lp.slug}" class="details-btn" style="text-decoration:none;">Open</a>
+                        <button type="button" onclick="editLandingPage('${lp.id}')" style="background:#EDF2F7;border:none;padding:8px 12px;border-radius:8px;font-weight:600;cursor:pointer;">Edit</button>
+                        <button type="button" onclick="deleteLandingPage('${lp.id}')" style="background:#FED7D7;color:#9B2C2C;border:none;padding:8px 12px;border-radius:8px;font-weight:600;cursor:pointer;">Delete</button>
+                    </div>
+                </div>
+            `).join('') : '<p style="color:#4B5563;">No landing pages created yet.</p>';
+        }
+
+        function renderAdminOrders() {
+            document.getElementById('adminOrdersCount').textContent = orders.length;
+            document.getElementById('adminOrdersList').innerHTML = orders.length ? orders.map(o => `
+                <div style="background:white;padding:20px;border-radius:12px;border:1px solid #E2E8F0;margin-bottom:16px;">
+                    <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+                        <strong>${o.name || o.customerName} (${o.phone})</strong>
+                        <span style="font-weight:800;color:var(--brand-green);">&#2547;${o.total || o.totalAmount}</span>
+                    </div>
+                    <p style="font-size:13px;color:#374151;margin-bottom:8px;">Address: ${o.address}</p>
+                    <p style="font-size:12px;color:#4B5563;">Items: ${(o.items || []).map(i => `${i.name} (${i.displayQty || getCartItemTotalPiecesText(i)})`).join(', ')}</p>
+                </div>
+            `).join('') : '<p style="color:#4B5563;">No orders received yet.</p>';
+        }
+
+        async function persistSettingsPayload(extra = {}) {
+            const payload = {
+                ...storeSettings,
+                heroTitle: document.getElementById('setHeroTitle')?.value ?? storeSettings.heroTitle,
+                heroSubtitle: document.getElementById('setHeroSubtitle')?.value ?? storeSettings.heroSubtitle,
+                shopTitle: document.getElementById('setShopTitle')?.value ?? storeSettings.shopTitle,
+                shopDesc: document.getElementById('setShopDesc')?.value ?? storeSettings.shopDesc,
+                fbLink: document.getElementById('setFbUrl')?.value ?? storeSettings.fbLink,
+                instaLink: document.getElementById('setIgUrl')?.value ?? storeSettings.instaLink,
+                logo: document.getElementById('setLogoUrl')?.value ?? storeSettings.logo,
+                logoWidth: Number(document.getElementById('setLogoWidth')?.value || storeSettings.logoWidth || 175),
+                logoHeight: Number(document.getElementById('setLogoHeight')?.value || storeSettings.logoHeight || 50),
+                phoneNumber: document.getElementById('setPhoneNumber')?.value ?? storeSettings.phoneNumber,
+                whatsappNumber: document.getElementById('setWhatsappNumber')?.value ?? storeSettings.whatsappNumber,
+                heroImage: document.getElementById('setHeroImg')?.value ?? storeSettings.heroImage,
+                landingPages,
+                ...extra
+            };
+            const res = await fetch('/api/settings', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+            if (res.ok) { storeSettings = { ...storeSettings, ...payload }; applySettingsUI(); return true; }
+            return false;
+        }
+
+        async function saveStoreSettings(e) {
+            e.preventDefault();
+            if (await persistSettingsPayload()) { alert('Store settings saved to MongoDB!'); await loadAllData(); }
+        }
+
+        document.addEventListener('input', (e) => {
+            if (e.target && e.target.id === 'lpSlug') {
+                const prev = document.getElementById('lpSlugPreview');
+                if (prev) prev.textContent = e.target.value || 'your-slug';
+            }
+        });
+
+        initApp();
+    </script>
+</body>
+</html>
